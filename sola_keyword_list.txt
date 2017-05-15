@@ -1,0 +1,227 @@
+            *** Keyword list for the journal Solar Physics ***
+ 
+Active Regions
+                 Active Regions, Magnetic Fields
+                 Active Regions, Models
+                 Active Regions, Structure
+                 Active Regions, Velocity Field
+
+Center-Limb Observations
+
+Chromosphere
+                  Chromosphere, Quiet
+                  Chromosphere, Active
+                  Chromosphere, Models
+
+Comets
+
+Convection Zone
+
+Corona
+                 Corona, Active
+                 Corona, E
+                 Corona, F
+                 Corona, Models
+                 Corona, Quiet
+                 Corona, Radio Emission
+                 Corona, Structures
+
+Coronal Holes
+
+Coronal Mass Ejections
+                 Coronal Mass Ejections, Low Coronal Signatures
+                 Coronal Mass Ejections, Initiation and Propagation     
+                 Coronal Mass Ejections, Interplanetary
+                 Coronal Mass Ejections, Theory
+            
+Coronal Seismology
+                
+Cosmic Rays
+                Cosmic Rays, Solar
+                Cosmic Rays, Galactic
+
+Earth's atmosphere
+                 Atmospheric Extinction
+                 Atmospheric Seeing
+
+Eclipse Observations
+
+Electric Currents and Current Sheets
+
+Energetic Particles
+                  Energetic Particles, Abundances
+                  Energetic Particles, Acceleration
+                  Energetic Particles, Electrons
+                  Energetic Particles, Helium Nuclei
+                  Energetic Particles, Neutrons
+                  Energetic Particles, Propagation
+                  Energetic Particles, Protons
+
+Ephemeris
+
+Flares
+                 Flares, Dynamics
+                 Flares, Energetic Particles
+                 Flares, Forecasting
+                 Flares, Impulsive Phase
+                 Flares, Microflares and Nanoflares
+                 Flares, Models
+                 Flares, Pre-Flare Phenomena
+                 Flares, Relation to Magnetic Field
+                 Flares, Spectrum
+                 Flares, Waves
+                 Flares, White-Light
+
+Granulation
+
+Heating
+                 Heating, Chromospheric
+                 Heating, Coronal
+                 Heating, in Flares
+
+Helicity
+                 Helicity, Current
+                 Helicity, Magnetic
+                 Helicity, Observations
+                 Helicity, Theory
+
+Helioseismology
+                 Helioseismology, Direct Modeling
+                 Helioseismology, Inverse Modeling
+                 Helioseismology, Observations
+                 Helioseismology, Theory 
+
+Instabilities
+
+Instrumental Effects
+
+Instrumentation and Data Management
+
+Integrated Sun Observations
+
+Interior
+                  Interior, Convective Zone
+                  Interior, Core
+                  Interior, Radiative Zone
+                  Interior, Tachocline
+
+Jets
+
+Magnetic Fields
+                   Magnetic fields, Chromosphere
+                   Magnetic fields, Corona
+                   Magnetic fields, Interplanetary
+                   Magnetic fields, Models
+                   Magnetic fields, Photosphere
+
+Magnetic Reconnection
+                   Magnetic Reconnection, Observational Signatures
+                   Magnetic Reconnection, Theory
+
+Magnetohydrodynamics                    
+
+Magnetosphere, Geomagnetic Disturbances
+
+Oscillations
+                   Oscillations, Solar
+                   Oscillations, Stellar
+
+Plasma Physics
+
+Polarization
+                    Polarization, Optical
+                    Polarization, Radio
+
+Prominences
+                    Prominences, Active
+                    Prominences, Dynamics
+                    Prominences, Formation and Evolution
+                    Prominences, Magnetic Field
+                    Prominences, Models
+                    Prominences, Quiescent
+
+Radio Bursts
+                    Radio Bursts, Association with Flares
+                    Radio Bursts, Dynamic Spectrum
+                    Radio Bursts, Meter-Wavelengths and Longer (m, dkm, hm, km)   
+                    Radio Bursts, Microwave (mm, cm)
+                    Radio Bursts, Theory
+                    Radio Bursts,  Type I   
+                    Radio Bursts,  Type II
+                    Radio Bursts,  Type III
+                    Radio Bursts,  Type IV
+                    Radio Bursts,  Type V
+
+Radio Emission
+                    Radio Emission,  Active Regions      
+                    Radio Emission,  Quiet
+                    Radio Emission,  Theory
+
+Radio Scintillation
+
+Rotation
+
+Solar Cycle
+                    Solar Cycle, Models
+                    Solar Cycle, Observations
+
+Solar Diameter
+
+Solar Irradiance
+
+Solar Wind
+                     Solar Wind, Disturbances
+                     Solar Wind, Shock Waves
+                     Solar Wind, Theory
+
+Spectral Line
+                     Spectral Line, Broadening
+                     Spectral Line, Intensity and Diagnostics
+                     Spectral Line, Theory
+
+Spectrum
+                     Spectrum, Continuum
+                     Spectrum, Theory
+                     Spectrum, Ultraviolet
+                     Spectrum, Visible
+                     Spectrum, X-Ray
+
+Stark Effect
+
+Sunspots
+                      Sunspots, Magnetic Fields
+                      Sunspots, Penumbra
+                      Sunspots, Statistics
+                      Sunspots, Umbra
+                      Sunspots, Velocity
+
+Supergranulation
+
+Surges
+
+Transition Region
+
+Turbulence
+
+Velocity Fields
+                      Velocity Fields, Interior
+                      Velocity Fields, Photosphere
+                      Velocity Fields, Solar Wind
+
+Waves
+                      Waves, Acoustic
+                      Waves, Alfven
+                      Waves, Magnetohydrodynamic
+                      Waves, Modes
+                      Waves, Plasma
+                      Waves, Propagation
+                      Waves, Shock
+
+X-Ray Bursts
+                      X-Ray Bursts, Association with Flares
+                      X-Ray Bursts, Hard
+                      X-Ray Bursts,Soft
+                      X-Ray Bursts, Spectrum
+                      X-Ray Bursts, Theory
+ 
+ 

@@ -1,0 +1,104 @@
+This file contains the command names and the labels used in
+the associated .tex file.    It is useful to have present file open
+as the same time of the .tex file to copy/paste definitions.
+When a new definition is added, it is important to keep this file
+updated. 
+
+   % Copy/paste of the definitions used in the .tex
+\newcommand{\BibTeX}{\textsc{Bib}\TeX}
+\newcommand{\etal}{{\it et al.}}
+
+% Definitions for equations
+\newcommand{\deriv}[2]{\frac{{\mathrm d} #1}{{\mathrm d} #2}}
+\newcommand{\rmd}{ {\ \mathrm d} }
+\renewcommand{\vec}[1]{ {\mathbf #1} }
+\newcommand{\uvec}[1]{ \hat{\mathbf #1} }
+\newcommand{\pder}[2]{ \f{\partial #1}{\partial #2} }
+\newcommand{\grad}{ {\bf \nabla } }
+\newcommand{\curl}{ {\bf \nabla} \times}
+\newcommand{\vol}{ {\mathcal V} }
+\newcommand{\bndry}{ {\mathcal S} }
+\newcommand{\dv}{~{\mathrm d}^3 x}
+\newcommand{\da}{~{\mathrm d}^2 x}
+\newcommand{\dl}{~{\mathrm d} l}
+\newcommand{\dt}{~{\mathrm d}t}
+\newcommand{\intv}{\int_{\vol}^{}}
+\newcommand{\inta}{\int_{\bndry}^{}}
+\newcommand{\avec}{ \vec A}
+\newcommand{\ap}{ \vec A_p}
+\newcommand{\bb}{ \vec B}
+\newcommand{\jj}{ \vec j}
+\newcommand{\rr}{ \vec r}
+\newcommand{\xx}{ \vec x}
+
+% Definitions for the journal names
+\newcommand{\adv}{    {\it Adv. Space Res.}} 
+\newcommand{\annG}{   {\it Ann. Geophys.}} 
+\newcommand{\aap}{    {\it Astron. Astrophys.}}
+\newcommand{\aaps}{   {\it Astron. Astrophys. Suppl.}}
+\newcommand{\aapr}{   {\it Astron. Astrophys. Rev.}}
+\newcommand{\ag}{     {\it Ann. Geophys.}}
+\newcommand{\aj}{     {\it Astron. J.}} 
+\newcommand{\apj}{    {\it Astrophys. J.}}
+\newcommand{\apjl}{   {\it Astrophys. J. Lett.}}
+\newcommand{\apss}{   {\it Astrophys. Space Sci.}} 
+\newcommand{\cjaa}{   {\it Chin. J. Astron. Astrophys.}} 
+\newcommand{\gafd}{   {\it Geophys. Astrophys. Fluid Dyn.}}
+\newcommand{\grl}{    {\it Geophys. Res. Lett.}}
+\newcommand{\ijga}{   {\it Int. J. Geomagn. Aeron.}}
+\newcommand{\jastp}{  {\it J. Atmos. Solar-Terr. Phys.}} 
+\newcommand{\jgr}{    {\it J. Geophys. Res.}}
+\newcommand{\mnras}{  {\it Mon. Not. Roy. Astron. Soc.}}
+\newcommand{\nat}{    {\it Nature}}
+\newcommand{\pasp}{   {\it Pub. Astron. Soc. Pac.}}
+\newcommand{\pasj}{   {\it Pub. Astron. Soc. Japan}}
+\newcommand{\pre}{    {\it Phys. Rev. E}}
+\newcommand{\solphys}{{\it Solar Phys.}}
+\newcommand{\sovast}{ {\it Soviet  Astron.}} 
+\newcommand{\ssr}{    {\it Space Sci. Rev.}} 
+
+%%%%%%%%%%%%%%%% Roadmap of the paper with all the labels %%%%%%%%%%%%%%%%%%%%%%%%
+%%%% (with the exception of citations since author-year is easy to remember) %%%%%
+1 Section~\ref{S-Introduction}
+2 Section~\ref{S-general}
+  Section~\ref{S-text}
+  Section~\ref{S-labels}
+3 Section~\ref{S-features}
+  Section~\ref{S-equations}
+   Section~\ref{S-simple-equations}
+     Equation~(\ref{Eq-H-def})
+   Section~\ref{S-array-equations}
+     Equation~(\ref{Eq-A-B})
+     Equation~(\ref{Eq-H-B})
+     Equation~(\ref{Eq-H-N})
+   Section~\ref{S-long-equations}
+     Equation~(\ref{Eq-dH-Phi})  
+  Section~\ref{S-figures}
+  Section~\ref{S-tables}
+  Section~\ref{S-references}
+  Section~\ref{S-BibTeX}
+  Section~\ref{S-Miscellaneous}
+4 Section~\ref{S-Conclusion}
+
+A Appendix~\ref{S-appendix}
+ 
+ 1 Figure~\ref{F-simple}
+ 2 Figure~\ref{F-4panels}
+ 3 Figure~\ref{F-rotate-cut}
+ 4 Figure~\ref{F-appendix}
+
+ 1 Table~\ref{T-simple}
+ 2 Table~\ref{T-complex}
+ 3 Table~\ref{T-appendix}
+
+%%%%%%%%%%%%%%%%%%%% Results for the citation commands %%%%%%%%%%%%%%%%%%%%%%%%  
+\cite{Kusano04}          : (Kusano \etal, 2004)
+\cite{Kusano04,Berger03} : (Kusano \etal, 2004; Berger, 2003)
+\inlinecite{Brown99}     : Brown, Canfield, and Pevtsov (1999)
+\opencite{Brown99}       : Brown, Canfield, and Pevtsov, 1999
+\citeauthor{Brown99}     : Brown, Canfield, and Pevtsov
+\shortcite{Brown99}      : (1999)
+\citeyear{Brown99}       : 1999
+(\opencite{Berger84}, \citeyear{Berger03}) 
+                         : (\opencite{Berger84}, \citeyear{Berger03})
+

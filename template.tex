@@ -1,0 +1,137 @@
+%% Template.tex; Solar Physics
+%% 
+\documentclass[namedreferences]{solarphysics}
+%
+% spr-sola-addons available options:
+%  hyperref      -- loads hyperref.sty with options (pdfborder={0 0 0 },urlcolor=blue,breaklinks)
+%  nonatbib      -- do not load natbib.sty (style loads it by default)
+%  solaromanenum -- makes enumerated list with roman numerals and a single right-bracket
+%  linksfromyear -- puts a link on a year citation (hyperref must be loaded). Loaded by default
+%  nolinksfromyear -- suppress  linksfromyear
+%  optionalrh    -- for optional running title/author
+%  showbiblabels -- to show bibitem label at end of bibitem (via \endbibitem command)
+%
+\usepackage[hyperref,optionalrh,solaromanenum]{spr-sola-addons} % For Solar Physics 
+%\usepackage{epsfig}                     % For eps figures, old commands
+\usepackage{graphicx}                    % For eps figures, newer & more powerfull
+%\usepackage{courier}                    % Change the \texttt command to courier style
+%\usepackage{amssymb}                    % useful mathematical symbols
+\usepackage{color}                       % For color text: \color command
+\usepackage{breakurl}                         % For breaking URLs easily trough lines
+\def\UrlFont{\sf}                        % define the fonts for the URLs
+
+
+%% Local definitions
+%% please place your own definitions here and don't use \def but
+%% \newcommand{}{} or 
+%% \renewcommand{}{} if it is already defined in LaTeX
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{article}
+
+\begin{opening}
+
+\title{Article title}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Authors Names
+%
+% \author[addressref={},corref,email={}]{\inits{}\fnm{}\lnm{}\orcid{}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Runningheads
+%
+%\runningauthor{}
+%\runningtitle{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Affilations 
+%% id shold be the same with \author addressref value.
+%\address[id={}]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Abstract 
+%\begin{abstract}
+%\end{abstract}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Keywords
+%
+%\keywords{}
+
+
+\end{opening}
+%-------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Sections
+%
+% \section{}%\label{s:?} 
+
+
+
+
+%% Figure 
+%
+% \begin{figure} 
+% \centerline{\includegraphics[width=0.5\textwidth,clip=]{<fig.eps>}}
+% \caption{}%\label{fig:?}
+% \end{figure}
+
+
+
+%% Table
+%
+% \begin{table}
+% \caption{}%\label{tbl:?}
+% \begin{tabular}{}     
+% \hline
+% \multicolumn{2}{c}{<>}
+% <data>
+% \hline
+% \end{tabular}
+% \end{table}
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Appendix
+%
+% \appendix   
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Acknowledgements
+%
+% \begin{acks}
+%
+% \end{acks}
+
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bibliography
+%
+% Using BibTeX
+%
+% \bibliographystyle{spr-mp-sola}
+% \bibliography{<bib file>}  
+%
+% Without BibTeX 
+% \begin{thebibliography}{}
+% \bibitem[\protect\citeauthoryear{Author}{Year}]{key}
+%   <bibliographical entry>
+%
+% \bibitem[\protect\citeauthoryear{}{}]{}
+%   
+%  
+% \end{thebibliography}
+
+\end{article} 
+\end{document}

@@ -1,0 +1,839 @@
+%% This is file `spr-sola-addons.sty'
+%%
+%% LaTeX 2e style file for the processing of LaTeX2e files
+%% of the SOLA journal (Springer)
+%%
+%%
+%% Macros written by Deimantas Galcius and L. Stonys VTeX, Lithuania
+%% Please submit bugs or your comments to latex-support@vtex.lt
+%%
+%% The original distribution is located at:
+%% http://www.e-publications.org/springer/support/
+%%
+%% This style file contains additional macros and is designed to use
+%% with class  "solarphysics.cls"
+%%
+%% You are free to use this style file as you see fit, provided 
+%% that you do not make changes to the file. 
+%% If you DO make changes, you are required to rename this file.
+%%
+%% It may be distributed under the terms of the LaTeX Project Public
+%% License, as described in lppl.txt in the base LaTeX distribution.
+%% Either version 1.0 or, at your option, any later version.
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+%%
+%%
+% Changes:
+% 2007.02.23 sectioning counter format amended: fullstop introduced
+%            urlstyle: sans serif
+% 2007.03.23 option: "optionalrh" for optional running title/author
+%            email: sffamily + prefix "e-mail: "
+% 2007.04.12 figure: fullstop; idline
+% 2010.01.26 - entered option solaenum
+% 2010.10.14 - entered option linksfromyear
+% 2011.03.01 - idline + TODAY@JWL
+% 2011.09.20 - linksfromyear doesn't loads natbib anymore. It works with/without natbib.
+% 2012.01.16 - entered option solaromanenum
+% 2015.01.20 - added \address and changed authors + afilliations output.
+% 2015.01.22 - removed option solaenum
+% 2015.01.22 - added option showbiblabels
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{spr-sola-addons}
+             [2015/10/07 v2.01, Springer style for SOLA journal]
+
+\newif\if@loadnatbib  \@loadnatbibtrue
+\DeclareOption{natbib}{\@loadnatbibtrue}
+\DeclareOption{nonatbib}{\@loadnatbibfalse}
+\newif\if@optionalrh\global\@optionalrhfalse\relax
+\DeclareOption{optionalrh}{\global\@optionalrhtrue\relax}
+\newif\if@linksfromyear\@linksfromyeartrue
+\DeclareOption{linksfromyear}{\@linksfromyeartrue}
+\DeclareOption{nolinksfromyear}{\@linksfromyearfalse}
+\newif\if@showbiblabel \@showbiblabelfalse
+\DeclareOption{showbiblabels}{\@showbiblabeltrue}
+
+\DeclareOption{solaenum}{\@latex@error{Option "solaenum" is deprecated!}{}}
+
+\newif\if@solaromanenum \@solaromanenumfalse
+\DeclareOption{solaromanenum}{\@solaromanenumtrue}
+\newif\if@loadhyperref \@loadhyperreffalse
+\DeclareOption{hyperref}{\@loadhyperreftrue}
+
+\ProcessOptions
+% Dimensions
+\setlength\textheight{198mm}
+\setlength\textwidth{347\p@}
+
+\setlength\parindent{12\p@}
+\setlength\headheight{12\p@}
+\setlength\headsep{14\p@}
+\setlength\topskip{10\p@}
+\setlength\footskip{17\p@}
+\setlength\maxdepth{\z@}
+\setlength\topmargin       {12mm}
+\advance\topmargin by-7pt
+%
+\setlength\oddsidemargin   {16.5mm}% gutter margin
+\setlength\evensidemargin  {16.5mm}% outer
+
+
+\renewcommand\normalsize{%
+   \@setfontsize\normalsize{10}{12pt plus .3pt minus .3pt}%
+   \abovedisplayskip 10\p@ \@plus2\p@ \@minus2\p@
+   \abovedisplayshortskip 6\p@ \@plus2\p@
+   \belowdisplayshortskip 6\p@ \@plus2\p@
+   \belowdisplayskip \abovedisplayskip}
+
+\renewcommand\small{%
+   \@setfontsize\small\@ixpt{11\p@ plus .2\p@ minus .2\p@}%
+   \abovedisplayskip 7.5\p@ \@plus4\p@ \@minus1\p@
+   \belowdisplayskip \abovedisplayskip
+   \abovedisplayshortskip \abovedisplayskip
+   \belowdisplayshortskip \abovedisplayskip}
+
+\renewcommand\footnotesize{%
+   \@setfontsize\footnotesize\@viiipt{9.25\p@ plus .1pt minus .1pt}%%
+   \abovedisplayskip 6\p@ \@plus4\p@ \@minus1\p@
+   \belowdisplayskip \abovedisplayskip
+   \abovedisplayshortskip \abovedisplayskip
+   \belowdisplayshortskip \abovedisplayskip}
+
+\setlength\smallskipamount{6\p@ \@plus 1\p@ \@minus 1\p@}
+\setlength\medskipamount  {11.5\p@ \@plus 3\p@ \@minus 3\p@}
+\setlength\bigskipamount  {23\p@ \@plus 6\p@ \@minus 3\p@}
+
+%% from `omscmsy.fd'
+\DeclareFontShape{OMS}{cmsy}{m}{n}{%
+      <5><6><7><8><9-10>gen*cmsy%
+      <10->cmsy10%
+      }{}
+\DeclareFontShape{OMS}{cmsy}{b}{n}{%
+      <-6> cmbsy5 <6-8> cmbsy7 <8-> cmbsy10%
+      }{}
+
+% FOOTNOTES
+\setlength\footnotesep   {10\p@}% 
+\setlength{\skip\footins}{18\p@ \@plus 4\p@ \@minus 2\p@}
+\skip\@mpfootins = \skip\footins
+%
+\def\footnoterule{\kern-3\p@ \hrule \@width 108\p@ \kern 2.6\p@} % the \hrule is .4pt high
+\renewcommand\@makefntext[1]{\@makefnmark #1}
+\def\@makefnmark{\@textsuperscript{\normalfont\@thefnmark}}%
+
+%  sectioning
+\def\nohyphen{\pretolerance=\@M \tolerance=\@M \hyphenpenalty=\@M \exhyphenpenalty=\@M}
+
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                         {-\bigskipamount}%
+                         {\medskipamount}%
+                         {\fontsize{11}{12.5}\bfseries\mathversion{bold}\raggedright\nohyphen}}
+\renewcommand\subsection{\@startsection {subsection}{2}{\z@}%
+                               {-\medskipamount}%
+                               {\medskipamount}%
+                               {\fontsize{10}{12.5}\bfseries\mathversion{bold}\raggedright\nohyphen}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                               {-\medskipamount}%
+                               {\medskipamount}%
+                               {\fontsize{10}{12.5}\itshape\raggedright}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+                               {\medskipamount}%
+                               {-10pt}%
+                               {\bfseries\mathversion{bold}}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+                               {0.1pt}%
+                               {-1em}%
+                               {\itshape}}
+
+% Format for the counter:
+  \def\section@numbersep{.}
+  \def\subsection@numbersep{.}
+  \def\subsubsection@numbersep{.}
+  \def\paragraph@numbersep{.}
+  \def\subparagraph@numbersep{.}
+
+% Format for the counter:
+\def\@seccntformat#1{{\csname #1@prefix\endcsname\csname the#1\endcsname\csname#1@numbersep\endcsname\enspace}}
+
+% misc
+\overfullrule=5pt
+
+% Title
+%   skip20pt
+%   fontsize 13/15; bfseries; marginright 10mm
+
+\def\raggedrightmargin#1{%
+  \let\\\@centercr\@rightskip #1 plus 1fil  \rightskip\@rightskip
+  \leftskip\z@skip
+  \parindent\z@\nohyphen}
+
+\def\titleflushstyle{\raggedrightmargin{10mm}}
+\def\openingflushstyle{\vglue-\topskip\hrule \@height 1\p@ \vskip40\p@}
+\def\titlefont{\fontsize{13}{15}\selectfont\bfseries\mathversion{bold}}
+
+% ORCID
+\let\@orcid\relax
+\def\orcid@base{http://orcid.org/}
+\protected\def\orcid#1{\gdef\@orcid{#1}}
+\def\output@orcid{\lower2\p@\hbox{\href{\orcid@base \@orcid}{\includegraphics{orcid}}}}
+
+
+% Author
+\let\saved@author@\author@
+\def\author@{\@ifnextchar[{\@author@}{\@author@[]}}
+\def\@author@[#1]#2{\saved@author@{[#1]{#2}}}
+
+\RequirePackage{keyval}
+\let\CheckedBox\relax
+\RequirePackage{marvosym}
+\let\@@Letter\Letter
+\def\@@@Letter{\lower.32\p@\hbox{\fontsize{13}{13}\selectfont\@@Letter}\hskip-1.3\p@}
+
+\def\authorsize{\normalsize\bfseries\raggedrightmargin{42mm}\let\sep=\authorsep}
+\protected\def\authorsep{~{\mathversion{bold}\ensuremath{\cdot}}\ }
+
+\newcounter{affref}
+\def\theaffref{\arabic{affref}}
+%% format footnote mark in author block
+\def\addressref@fmt#1{\textsuperscript{\addressref@sep #1}}
+%% format footnote label in addresses list 
+\def\addresslbl@fmt#1{\textsuperscript{#1}}
+
+
+\newif\if@authorcorref
+\define@key{author}{corref}[true]{\@authorcorreftrue}%
+\define@key{author}{email}{\def\@author@email{#1}}%
+\define@key{author}{addressref}{\def\@author@addressref{#1}}
+
+\def\email@prefix{e-mail:~}
+\def\surname#1{#1}%
+\def\inits#1{}%
+\def\fnm#1{#1}%
+\def\lnm#1{#1}%
+\let\sep\relax
+
+\def\@formatauthors{\begingroup
+  \authorsize
+  \leavevmode
+  \gdef\surname##1{##1}%
+  \gdef\email##1{ \hbox{(\email@prefix{\sffamily \lowercase{##1}})}}%
+  \cnt@authors=0
+  \def\@k@p##1{\advance\cnt@authors by 1}\@curauths
+  \def\@k@p##1{\advance\cnt@authors by -1
+    \ifnum\cnt@authors>1
+      \@fmt@author ##1\sep
+    \fi
+    \ifnum\cnt@authors=1                               % before \fi's !!
+      \@fmt@author ##1\sep
+    \fi
+    \ifnum\cnt@authors<1
+      \@fmt@author ##1\par
+    \fi
+    }\@curauths
+   \vskip \afterauthorskip
+  \printaddresses 
+  \endgroup}
+
+\newtoks\corref@authors@list
+\newtoks\email@authors@list
+\def\fmt@author@and@email#1#2{#1\\{\href{mailto:#2}{\sffamily \lowercase{#2}}}}
+\def\add@xtok#1#2{\begingroup\xdef\@act{\global\noexpand#1{\the#1#2}}\@act\endgroup}
+\def\fmt@addressref@list{%
+  \ifx\addrespresented\relax
+  \else
+    \@for\@id:=\@author@addressref\do{%
+      \@ifundefined{affref@\@id}%
+        {%
+          \stepcounter{affref}%
+          \expandafter\xdef\csname affref@\@id\endcsname{\theaffref}%
+        }%
+        {}%
+      \addressref@fmt{\csname affref@\@id\endcsname}%
+      \def\addressref@sep{,}%
+      }%
+  \fi
+  }
+
+\newcommand\@fmt@author[2][]{%
+  \bgroup
+    \let\inits\relax
+    \let\fnm\relax
+    \let\@orcid\relax
+    \let\@author@email\@empty
+    \let\@author@addressref\@empty
+    \let\addressref@sep\@empty
+    \setkeys{author}{#1}%
+    \ifx\@author@email\@empty
+    \else
+      \if@authorcorref
+        \add@xtok\corref@authors@list{\noexpand\item[\noexpand\@@@Letter]\noexpand\fmt@author@and@email{#2}{\@author@email}}%
+      \else
+        \add@xtok\email@authors@list{\noexpand\item[] \noexpand\fmt@author@and@email{#2}{\@author@email}}%
+      \fi
+    \fi
+    \def\inits##1{\ignorespaces}%
+    \def\fnm##1{##1\ignorespaces}%
+    \noindent #2\fmt@addressref@list
+    \ifx\@orcid\relax
+    \else
+      \output@orcid
+    \fi
+  \egroup
+  }
+
+\def\fmt@address#1{#1}
+\def\make@address@mark#1{%
+  \@ifundefined{#1}{??}{\csname #1\endcsname}%
+  }
+\define@key{address}{id}{\def\@address@id{#1}}%
+\let\addrespresented\relax
+\newtoks\adresses@list
+\newcommand\address[2][]{%
+  \bgroup
+    \global\let\addrespresented\@empty
+    \let\@address@id\@empty
+    \setkeys{address}{#1}%
+    \ifx\@address@id\@empty
+      \def\item@mark{}%
+    \else
+      \def\item@mark{\noexpand\make@address@mark{affref@\@address@id}}%
+    \fi
+    \add@xtok\adresses@list{\noexpand\item[\item@mark]\noexpand\fmt@address{#2}}%
+  \egroup
+  \ignorespaces
+  }
+  
+%%%% castead
+\def\casteadlistsetup#1{#1}
+\def\castaddresseslistsetup#1{#1}
+
+\def\@casteadlistsetup{%
+  \labelwidth15pt
+  \itemindent\labelwidth
+  \parindent\itemindent
+  \itemsep5pt
+  }
+
+\def\@casteadlisthook{%
+  \def\makelabel##1{\hfil ##1}%
+  }
+
+\def\castead{%
+  \bgroup
+    \let\orcid\@gobble
+    \let\make@trivlist\@firstofone
+    %% do nothing if lists are empty
+    \expandafter\def\expandafter\@temp\expandafter{\the\corref@authors@list}%
+    \ifx\@temp\@empty
+      \expandafter\def\expandafter\@temp\expandafter{\the\email@authors@list}%
+      \ifx\@temp\@empty
+        \let\make@trivlist\@gobble
+      \fi
+    \fi
+    \def\fnm##1{\ignorespaces}%
+    \def\inits##1{##1\ignorespaces}%
+    \make@trivlist{%
+      \csname castead@skip\endcsname
+      \trivlist
+        \@casteadlisthook
+        \@casteadlistsetup
+        \the\corref@authors@list
+        \the\email@authors@list
+      \endtrivlist
+      \global\email@authors@list={}%
+      \global\corref@authors@list={}%
+      }%
+  \egroup
+  }
+
+%%%% castaddresses
+\def\castaddresses@skip{\addvspace{8\p@}}
+\def\@castaddresseslistsetup{%
+  \topsep0pt
+  \parskip0pt
+  \partopsep0pt
+  \listparindent0pt
+  \itemindent0pt
+  \labelsep0pt
+  \leftmargin15pt
+  \labelwidth\leftmargin
+  \itemsep5pt
+  }
+
+\def\@castaddresseslisthook{%
+  \def\makelabel##1{\rlap{\addresslbl@fmt{##1}}}% 
+  }
+
+\def\castaddresses{%
+  \bgroup
+    \let\make@list\@firstofone
+    %% do nothing if lists are empty
+    \expandafter\def\expandafter\@temp\expandafter{\the\adresses@list}%
+    \ifx\@temp\@empty
+      \let\make@list\@gobble
+    \fi
+    \make@list{%
+      \castaddresses@skip
+      \list{}{\@castaddresseslistsetup}%
+        \@castaddresseslisthook
+        \the\adresses@list
+      \endlist
+      }
+  \egroup
+  }
+
+\def\footnoterule@width@secondpage{18mm}
+\def\footnoterule@height@secondpage{0.2mm}
+
+%%%% printaddresses
+\global\let\orig@footnoterule\footnoterule
+\def\fminsert@size{\footnotesize\normalfont\raggedrightmargin{5mm}}
+\def\footnoterule@width{108\p@}
+\long\def\printaddresses{%
+  \gdef\footnoterule{\global\let\footnoterule\orig@footnoterule}%
+  \insert\footins{%
+     \fminsert@size
+     \setlength\smallskipamount{5\p@}%
+     \setlength\medskipamount{10\p@}%
+     \vskip2.7\p@
+     \hrule width\footnoterule@width
+     \vskip4.2pt
+        \castead
+        \castaddresses
+    \par
+    }%
+  }
+
+% Institute
+\def\institutesize{\footnotesize\normalfont}
+\def\@formatinstitute{\insert\footins{\institutesize
+    \institutecase{\@curinst}\par}}
+%
+
+
+% Figure
+\renewcommand{\fnum@figure}{{\bfseries\figurename~\thefigure.\/}}
+
+% Table 
+\renewcommand\thetable{\@arabic\c@table}
+\renewcommand{\fnum@table}{{\bfseries\tablename~\thetable.\/}}
+
+% Acknowledgements
+\def\@acknowledgement{\paragraph*{\acknowledgementsname}%
+  \message{\acknowledgementsname}}
+\def\acknowledgment{\def\acknowledgementsname{Acknowledgment}\@acknowledgement}
+\def\acknowledgement{\def\acknowledgementsname{Acknowledgement}\@acknowledgement}
+\def\acknowledgments{\def\acknowledgementsname{Acknowledgments}\@acknowledgement}
+\def\acknowledgements{\def\acknowledgementsname{Acknowledgements}\@acknowledgement}
+\newenvironment{ack}[1][Acknowledgment]{\footnotesize\paragraph*{#1}}{}
+\newenvironment{acks}[1][Acknowledgments]{\footnotesize\paragraph*{#1}}{}
+
+
+% Running head'ai
+% % pirmas puslapis
+\def\@jname{Solar Physics}
+\def\@doi{\@doihead \@thedoi}
+\def\@doihead{DOI:\space}
+\def\@thedoi{10.1007/\textbullet\textbullet\textbullet\textbullet\textbullet
+  -\textbullet\textbullet\textbullet
+  -\textbullet\textbullet\textbullet
+  -\textbullet\textbullet\textbullet\textbullet
+  -\textbullet}
+%
+\def\ps@opening{%
+  \def\@oddhead{\parbox[t]{\textwidth}{\footnotesize\@jname\\\@doi}}%
+  \let\@evenhead\@oddhead
+  \def\@oddfoot{\idline\hfill}%\@copyrightfoot \@barcode\idline\@kapidentfoot\hss}
+  \def\@evenfoot{\hfill\@gobble\idline}}
+%
+
+\def\ps@headings{%
+  \def\@oddfoot{\idline\hfil }%
+  \let\@evenfoot\@oddfoot
+  \def\@evenhead{\rh@rule\hbox{}\@gobble{\rlap{\footnotesize\thepage}}\hfil
+    \@markfont\mymyleftmark}%
+  \def\@oddhead{\rh@rule\@markfont\mymyrightmark\hfill\@gobble{\llap{\footnotesize\thepage}}}%
+}
+\def\rh@rule{\leavevmode\lower6pt\hbox to0pt{\vrule height1pt width\textwidth\hss}}
+\pagestyle{headings}
+
+\def\@coprtyear{\textbullet\textbullet\textbullet\textbullet} 
+\def\@volume{0}
+\def\@@firstpage{\textbullet}
+\def\@@lastpage{\textbullet}
+\if@optionalrh
+\def\mymyleftmark{\@runningauthor}%
+\def\mymyrightmark{\@runningtitle}%
+\else
+\def\mymyleftmark{\@jname\@gobble{\ (\@coprtyear)
+    \@volume:\@firstpage--\@lastpage}}
+\let\mymyrightmark\mymyleftmark
+\fi
+
+%%%%% spec environment
+\let\org@begin\begin
+\let\org@end\end
+\def\begin#1{%
+  \@ifundefined{pseudo@#1}%
+    {\org@begin{#1}}{\csname pseudo@#1\endcsname[0]\relax}%
+  }
+\def\end#1{%
+  \@ifundefined{pseudo@#1}%
+    {\org@end{#1}}{\csname pseudo@#1\endcsname[1]\relax}%
+  }
+\newcount\pseudo@@env@@cnt
+\def\newpseudoenvironment#1#2#3{%
+  \expandafter\gdef\csname pseudo@#1\endcsname[##1]{\relax
+     \ifcase##1\relax
+       \global\advance\pseudo@@env@@cnt\@ne
+       \def\@@next@@{#2}%
+     \or
+       \global\advance\pseudo@@env@@cnt\m@ne
+       \def\@@next@@{#3}%
+     \else
+       \let\@@next@@\relax
+     \fi
+     \@@next@@
+     }%
+  }
+\AtEndDocument{%
+  \ifnum\pseudo@@env@@cnt=\z@
+  \else
+    \dbl@error{Unbalanced pseudo environments}%
+  \fi
+  }
+
+\let\start@tex@env\relax
+\let\end@tex@env\relax
+\long\def\add@env@toks#1#2#3\end#4{%
+  \def\check@param@a{#1}\def\check@param@b{#4}%
+  \ifx\check@param@a\check@param@b
+    \def\@next@{\let\end@tex@env\relax
+      \global#2\expandafter{\the#2#3\end@tex@env}%
+      \csname end@add@env@#1@hook\endcsname
+      }%
+  \else
+    \def\@next@{\global#2\expandafter{\the#2#3\end{#4}}\add@env@toks{#1}{#2}}%
+  \fi
+  \@next@
+  }
+\def\read@opt@args#1#2[#3]{\let\start@tex@env\relax\global#2\expandafter{\the#2\start@tex@env{#1}[#3]}\add@env@toks{#1}{#2}}
+\def\get@opt@args#1#2{\@ifnextchar[{\read@opt@args{#1}{#2}}{\let\start@tex@env\relax\global#2\expandafter{\the#2\start@tex@env{#1}[]}\add@env@toks{#1}{#2}}}
+\def\get@env@toks#1#2{%
+  \expandafter\def\csname pseudo@#1\endcsname[##1]\relax{%
+    \ifcase##1\relax
+      \def\@next@{\get@opt@args{#1}{#2}}%
+    \else
+      \def\@next@{}%
+    \fi
+    \@next@
+    }%
+  }
+
+% Abstract
+\let\abstractnamefont\bfseries
+\def\abstractsize{\normalsize\normalfont}
+\def\abstractdot{~}
+
+\newtoks\document@abstract 
+\get@env@toks{abstract}{\document@abstract}
+
+\gdef\@abstract{%
+  \message{\abstractname}%
+  \vskip\preabstractskip
+  \noindent
+  \abstractsize \noindent
+  {\abstractnamefont\abstractname\abstractdot}%
+  \bgroup
+    \long\def\start@tex@env##1[##2]##3\end@tex@env{##3}%
+    \the\document@abstract
+  \egroup
+  \vskip\afterabstractskip 
+  }
+
+% Springer Copyright
+\def\sprcopyright{\gdef\@copyright{\copyright@size\copyright@text\vskip2\baselineskip}}
+\def\copyright@text{\textcopyright\ Springer \textbullet\textbullet\textbullet\textbullet}
+\let\copyright@size\footnotesize
+
+\def\@maketitle{%
+   \@arttype \@title \@subtitle \@authorsandinstitutes \@date  \@copyright
+   \@abstract \@keywords \@abbreviations \@classification
+   \@nomenclature \@translation \@dedication \@motto}
+\sprcopyright
+
+
+% Enumerate
+  \def\kapenumargs{%
+   \topsep        \smallskipamount
+   \partopsep     \z@ \@plus 1pt
+   \itemsep       \z@ \@plus \z@
+   \parsep        \z@ \@plus 1pt
+   \if@margspec \else \leftmargini   \z@ \fi
+   \if@margspec \else \leftmarginii  1em \fi
+   \if@margspec \else \leftmarginiii 1em \fi
+   \if@margspec \else \leftmarginiv  1em \fi
+   \if@margspec
+     \leftmargin\csname leftmargin\romannumeral\@enumdepth\endcsname
+     \labelwidth\leftmargin
+     \advance\labelwidth-\labelsep
+   \fi
+   \rightmargin   \z@
+   \listparindent \z@
+   \itemindent    \z@
+  }
+
+\def\enumerate{\@ifnextchar[%
+    {\kap@enumerate}%
+    {\if@margspec \kap@enumerate[]\else \kap@enumerate[0]\fi }}
+
+
+\if@solaromanenum
+  \def\theenumi  {\@roman\c@enumi}
+  \def\labelenumi  {\theenumi)}
+\fi
+
+% Itemize
+
+\def\kapitemargs{%
+\itemsep \z@%
+\parsep \z@%
+\leftmargini\z@%
+\itemindent\z@%
+}
+
+\def\labelitemi  {\textbullet}
+\def\labelitemii {\textendash}
+\def\labelitemiii{\textasteriskcentered} 
+\def\labelitemiv {{\footnotesize +}}
+
+\AtBeginDocument{\@ifundefined{urlstyle}{}{\urlstyle{sf}}}
+
+\DeclareMathAlphabet      {\mathbfit}{OML}{cmm}{b}{it}
+
+
+\def\TODAY@JWL{\number\day\space\ifcase\month\or January\or February\or March\or
+ April\or
+   May\or June\or July\or August\or September\or October\or November\or
+   December\fi \space\number\year}
+\def\idline{\if@noid\else
+    \rlap{\smash{\vtop to \id@boxheight{%
+     \vfil\hbox to\textwidth{%
+     \hfil\footnotesize\tt
+     SOLA\csname SOLAID\endcsname: \jobname.tex; \TODAY@JWL;~\timenow;~p.~\thepage}}}}%
+   \fi}
+
+%% default options for hyperref
+\if@loadhyperref
+  \usepackage[pdfborder={0 0 0 },urlcolor=blue,breaklinks]{hyperref}
+\else
+  \let\href\@secondoftwo
+  \let\url\@firstofone
+\fi
+
+\if@loadnatbib
+	\let\bibhang\relax
+	\let\citeauthoryear\relax
+	\RequirePackage{natbib}
+	\@ifundefined{newblock}{\def\newblock{\hskip .11em plus .33em minus .07em}}{}
+	\@ifundefined{@listctr}{\newcounter{start}\setcounter{start}{0}\def\@listctr{start}}{}
+	\let\inlinecite\citet
+	\let\opencite\citealp
+	\let\shortcite\citeyearpar
+	\let\bibfont\footnotesize
+	\gdef\NAT@bibsetup#1{\kapbib@list}
+%\else
+%	\newlength{\bibhang}
+\fi
+
+\def\citefix{%
+	\def\NAT@citex%
+  [##1][##2]##3{%
+  \NAT@sort@cites{##3}%
+  \let\@citea\@empty
+  \@cite{\let\NAT@nm\@empty\let\NAT@year\@empty
+    \@for\@citeb:=\NAT@cite@list\do
+    {\edef\@citeb{\expandafter\@firstofone\@citeb}%
+     \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi
+     \@ifundefined{b@\@citeb\@extra@b@citeb}{\@citea%
+       {\reset@font\bfseries ?}\NAT@citeundefined
+                 \PackageWarning{natbib}%
+       {Citation `\@citeb' on page \thepage \space undefined}\def\NAT@date{}}%
+     {\let\NAT@last@nm=\NAT@nm\let\NAT@last@yr=\NAT@year
+     \NAT@parse{\@citeb}%
+      \ifNAT@longnames\@ifundefined{bv@\@citeb\@extra@b@citeb}{%
+        \let\NAT@name=\NAT@all@names
+        \global\@namedef{bv@\@citeb\@extra@b@citeb}{}}{}%
+      \fi
+     \ifNAT@full\let\NAT@nm\NAT@all@names\else
+       \let\NAT@nm\NAT@name\fi
+     \ifNAT@swa\ifcase\NAT@ctype
+       \if\relax\NAT@date\relax
+         \@citea\NAT@nmfmt{\NAT@nm}%
+         \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+         \NAT@date\hyper@natlinkend
+       \else
+         \ifx\NAT@last@nm\NAT@nm\NAT@yrsep
+            \ifx\NAT@last@yr\NAT@year
+              \hyper@natlinkstart{\@citeb\@extra@b@citeb}\NAT@exlab
+              \hyper@natlinkend
+            \else\unskip\
+              \hyper@natlinkstart{\@citeb\@extra@b@citeb}\NAT@date
+              \hyper@natlinkend
+            \fi
+         \else
+           \@citea\NAT@nmfmt{\NAT@nm}%
+           \NAT@aysep\ 
+           \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+           \NAT@date\hyper@natlinkend
+         \fi
+       \fi
+     \or\@citea\hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+         \NAT@nmfmt{\NAT@nm}\hyper@natlinkend
+     \or\@citea\hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+         \NAT@date\hyper@natlinkend
+     \or\@citea\hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+         \NAT@alias\hyper@natlinkend
+     \fi \def\@citea{\NAT@sep\ }%
+     \else\ifcase\NAT@ctype
+        \if\relax\NAT@date\relax
+          \@citea\hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+          \NAT@nmfmt{\NAT@nm}\hyper@natlinkend
+        \else
+        \ifx\NAT@last@nm\NAT@nm\NAT@yrsep
+            \ifx\NAT@last@yr\NAT@year
+              \hyper@natlinkstart{\@citeb\@extra@b@citeb}\NAT@exlab
+              \hyper@natlinkend
+            \else\unskip\
+              \hyper@natlinkstart{\@citeb\@extra@b@citeb}\NAT@date
+              \hyper@natlinkend
+            \fi
+         \else
+           \@citea\NAT@nmfmt{\NAT@nm}%
+           \ \NAT@@open\if*##1*\else##1\ \fi
+           \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+           \NAT@date\hyper@natlinkend\fi
+        \fi
+       \or\@citea\hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+         \NAT@nmfmt{\NAT@nm}\hyper@natlinkend
+       \or\@citea\hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+         \NAT@date\hyper@natlinkend
+       \or\@citea\hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+         \NAT@alias\hyper@natlinkend
+       \fi \if\relax\NAT@date\relax\def\@citea{\NAT@sep\ }%
+           \else\def\@citea{\NAT@@close\NAT@sep\ }\fi
+     \fi
+     }}\ifNAT@swa\else\if*##2*\else\NAT@cmt##2\fi
+     \if\relax\NAT@date\relax\else\NAT@@close\fi\fi}{##1}{##2}}
+	\let\@citex\NAT@citex
+}
+
+
+\if@linksfromyear
+  \if@loadnatbib 
+   \citefix
+  \else
+    	\def\cite@@label{unknown}%
+      \let\save@document\document
+      \def\document{
+        	\@ifpackageloaded{hyperref}{%
+        \gdef\cite@year@hook##1{\hyper@@link[cite]{}{cite.\cite@@label\@extra@b@citeb}{##1}}%
+        \gdef\cite@author@hook##1{\hyper@@link[cite]{}{cite.\cite@@label\@extra@b@citeb}{##1}}%
+        \gdef\bibcite##1##2{%
+          \@newl@bel{b}{##1\@extra@binfo}{%
+                 \def\cite@@label{##1}%
+                 ##2%
+             }%
+        }%
+    }%
+    {}%
+       \save@document
+      }
+  
+  \fi
+\fi
+
+\if@showbiblabel
+  \if@loadnatbib 
+    \let\saved@NAT@parse\NAT@parse
+    \def\NAT@parse#1{%
+      \gdef\current@biblabel{#1}%
+      \saved@NAT@parse{#1}%
+      }
+  \else
+    \let\saved@lbibitem\@lbibitem
+    \def\@lbibitem[#1]#2{%
+      \gdef\current@biblabel{#2}%
+      \saved@lbibitem[#1]{#2}%
+      }
+    \let\saved@bibitem\@bibitem
+    \def\@bibitem#1{%
+      \gdef\current@biblabel{#1}%
+      \saved@lbibitem{#1}%
+      }
+  \fi    
+\fi
+  
+\def\endbibitem{%
+  \@ifundefined{current@biblabel}{}{\texttt{[\expandafter\detokenize\expandafter{\current@biblabel}]}}}
+
+\def\label#1{\ilabel{\thearticle #1}}%
+\def\ref#1{\iref{\thearticle #1}}%
+\def\pageref#1{\ipageref{\thearticle #1}}%
+
+\renewenvironment{article}{%
+  \def\@definecounter##1{\art@intdefinecounter{##1}%
+    \@addtoreset{##1}{article}}%
+  \renewcommand{\thearticle}{\roman{article}}%
+  \refstepcounter{article}%
+  \message{Article \number\c@article}%
+  \gdef\@firstpage{\the\c@page}%
+  \@addtoreset{equation}{article}%
+  \ifx\sectioncmd\section
+    \@addtoreset{section}{article}%
+  \else
+    \@addtoreset{chapter}{article}%
+  \fi
+  \@addtoreset{endnote}{article}%
+  \@addtoreset{table}{article}%
+  \@addtoreset{figure}{article}%
+  \@addtoreset{algorithm}{article}%
+%  \def\label##1{\ilabel{\thearticle ##1}}%
+%  \def\ref##1{\iref{\thearticle ##1}}%
+%  \def\pageref##1{\ipageref{\thearticle ##1}}%
+  \setlastpage
+  \global\inarticletrue
+  }{\make@ao
+    \writelastpage
+    \clearpage
+    \if@openright
+      \ifodd \c@page \else ~\thispagestyle{empty}\newpage \fi
+    \fi
+    \gdef\@dedication{}\gdef\@translation{}%
+    \gdef\@title{}\gdef\@subtitle{}%
+    \gdef\@arttype{}\gdef\@keywords{}\gdef\@classification{}%
+    \gdef\@nomenclature{}\gdef\@abbreviations{}\gdef\@abstract{}%
+    \gdef\@kapidenthead{}\gdef\@kapidentfoot{}%
+    \gdef\@barcode{}\gdef\@firstpage{\thepage}%
+    \gdef\@crline{}%
+    \global\lastpagegivenfalse
+    \global\inarticlefalse
+   }
+
+\endinput

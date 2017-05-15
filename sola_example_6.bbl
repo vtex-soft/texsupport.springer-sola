@@ -1,0 +1,218 @@
+\begin{thebibliography}{13}
+% BibTex style file: spr-mp-sola.bst (nameyear), 2014-02-13
+\ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi
+\ifx\binits    \undefined \def\binits#1{#1}\fi
+\ifx\bauthor   \undefined \def\bauthor#1{#1}\fi
+\ifx\batitle   \undefined \def\batitle#1{#1}\fi
+\ifx\bjtitle   \undefined \def\bjtitle#1{\textit{#1}}\fi
+\ifx\bvolume   \undefined \def\bvolume#1{\textbf{#1}}\fi
+\ifx\byear     \undefined \def\byear#1{#1}\fi
+\ifx\bissue    \undefined \def\bissue#1{#1}\fi
+\ifx\bfpage    \undefined \def\bfpage#1{#1}\fi
+\ifx\blpage    \undefined \def\blpage #1{#1}\fi
+\ifx\burl      \undefined \def\burl#1{\textsf{#1}}\fi
+\ifx\href      \undefined \def\href#1#2{\textsf{#2}}\fi
+\ifx\betal     \undefined \def\betal{\textit{et al.}}\fi
+\ifx\bctitle   \undefined \def\bctitle#1{#1}\fi
+\ifx\beditor   \undefined \def\beditor#1{#1}\fi
+\ifx\bbtitle   \undefined \def\bbtitle#1{\textit{#1}}\fi
+\ifx\bedition  \undefined \def\bedition#1{#1}\fi
+\ifx\bseriesno \undefined \def\bseriesno#1{\textbf{#1}}\fi
+\ifx\blocation \undefined \def\blocation#1{#1}\fi
+\ifx\bsertitle \undefined \def\bsertitle#1{\textit{#1}}\fi
+\ifx\bsnm      \undefined \def\bsnm#1{#1}\fi
+\ifx\bsuffix   \undefined \def\bsuffix#1{#1}\fi
+\ifx\bparticle \undefined \def\bparticle#1{#1}\fi
+\ifx\barticle  \undefined \def\barticle#1{}\fi
+\ifx\binstitute  \undefined \def\binstitute#1{#1}\fi
+\ifx\bpublisher  \undefined \def\bpublisher#1{#1}\fi
+\ifx\doiurl    \undefined
+  \def\doiurl#1{\href{http://dx.doi.org/#1}{\textsf{DOI}}}\fi
+\ifx\arxivurl  \undefined
+  \def\arxivurl#1{\href{http://arxiv.org/abs/#1}{\textsf{arXiv}}}\fi
+\ifx\adsurl    \undefined
+  \def\adsurl#1{\href{http://adsabs.harvard.edu/abs/#1}{\textsf{ADS}}}\fi
+\ifx\botherref \undefined \def\botherref#1{}\fi
+\ifx\url       \undefined \def\url#1{\textsf{#1}}\fi
+\ifx\bchapter  \undefined \def\bchapter#1{}\fi
+\ifx\bbook     \undefined \def\bbook#1{}\fi
+\ifx\bcomment  \undefined \def\bcomment#1{#1}\fi
+\ifx\oauthor   \undefined \def\oauthor#1{#1}\fi
+\ifx\citeauthoryear \undefined\def \citeauthoryear#1{#1}\fi
+\ifx\endbibitem \undefined \def\endbibitem{}\fi
+\ifx\bconflocation  \undefined \def\bconflocation#1{#1} \fi
+
+\bibitem[\protect\citeauthoryear{{Berger}}{1984}]{Berger84}
+\begin{barticle}
+\bauthor{\bsnm{{Berger}}, \binits{M.A.}}:
+\byear{1984},
+\batitle{{Rigorous new limits on magnetic helicity dissipation in the solar
+  corona}}.
+\bjtitle{Geophys. Astrophys. Fluid. Dyn.}
+\bvolume{30},
+\bfpage{79}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Berger}}{2003}]{Berger03}
+\begin{bchapter}
+\bauthor{\bsnm{{Berger}}, \binits{M.A.}}:
+\byear{2003},
+\bctitle{{Topological quantities in magnetohydrodynamics}}.
+In: \beditor{\bsnm{{Ferriz-Mas}}, \binits{A.}},
+\beditor{\bsnm{{N{\'u}{\~n}ez}}, \binits{M.}} (eds.)
+\bbtitle{Advances in Nonlinear Dynamics},
+\bpublisher{Taylor and Francis Group, London}, \blocation{???},
+\bfpage{345}.
+\adsurl{cgi-bin/nph-bib_query?bibcode=2003and..book..345B\&amp;db_key=PHY}.
+\end{bchapter}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Berger} and {Field}}{1984}]{BergerF84}
+\begin{barticle}
+\bauthor{\bsnm{{Berger}}, \binits{M.A.}},
+\bauthor{\bsnm{{Field}}, \binits{G.B.}}:
+\byear{1984},
+\batitle{{The topological properties of magnetic helicity}}.
+\bjtitle{J. Fluid. Mech.}
+\bvolume{147},
+\bfpage{133}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Brandenburg}}{2001}]{Brandenburg01}
+\begin{barticle}
+\bauthor{\bsnm{{Brandenburg}}, \binits{A.}}:
+\byear{2001},
+\batitle{{The Inverse Cascade and Nonlinear Alpha-Effect in Simulations of
+  Isotropic Helical Hydromagnetic Turbulence}}.
+\bjtitle{\apj}
+\bvolume{550},
+\bfpage{824}.
+\doiurl{10.1086/319783}.
+\adsurl{cgi-bin/nph-bib_query?bibcode=2001ApJ...550..824B\&db_key=AST}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Brown}, {Canfield}, and
+  {Pevtsov}}{1999}]{Brown99}
+\begin{bbook}
+\bauthor{\bsnm{{Brown}}, \binits{M.R.}},
+\bauthor{\bsnm{{Canfield}}, \binits{R.C.}},
+\bauthor{\bsnm{{Pevtsov}}, \binits{A.A.}}:
+\byear{1999},
+\bbtitle{{Magnetic Helicity in Space and Laboratory Plasmas}},
+\bpublisher{Geophy. Mon. Ser. 111, AGU}, \blocation{???}.
+\end{bbook}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Dupont}, {Schmidt}, and
+  {Koutny}}{2007}]{Dupont07}
+\begin{barticle}
+\bauthor{\bsnm{{Dupont}}, \binits{J.-C.}},
+\bauthor{\bsnm{{Schmidt}}, \binits{F.}},
+\bauthor{\bsnm{{Koutny}}, \binits{P.}}:
+\byear{2007},
+\batitle{{An example of reference with BibTeX}}.
+\bjtitle{\solphys}
+\bvolume{323},
+\bfpage{965}.
+\arxivurl{1011.4291}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Elsasser}}{1956}]{Elsasser56}
+\begin{barticle}
+\bauthor{\bsnm{{Elsasser}}, \binits{W.M.}}:
+\byear{1956},
+\batitle{{Hydromagnetic Dynamo Theory}}.
+\bjtitle{Rev. Mod. Phys.}
+\bvolume{28},
+\bfpage{135}.
+\adsurl{http://cdsads.u-strasbg.fr/cgi-bin/nph-bib_query?bibcode=1956RvMP...28..135E\&db_key=AST}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Heyvaerts} and {Priest}}{1984}]{Heyvaerts84}
+\begin{barticle}
+\bauthor{\bsnm{{Heyvaerts}}, \binits{J.}},
+\bauthor{\bsnm{{Priest}}, \binits{E.R.}}:
+\byear{1984},
+\batitle{{Coronal heating by reconnection in DC current systems - A theory
+  based on Taylor's hypothesis}}.
+\bjtitle{\aap}
+\bvolume{137},
+\bfpage{63}.
+\adsurl{http://cdsads.u-strasbg.fr/cgi-bin/nph-bib_query?bibcode=1984A\%26A...137...63H\&db_key=AST}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Kusano} \textit{et~al.}}{2004}]{Kusano04}
+\begin{barticle}
+\bauthor{\bsnm{{Kusano}}, \binits{K.}},
+\bauthor{\bsnm{{Maeshiro}}, \binits{T.}},
+\bauthor{\bsnm{{Yokoyama}}, \binits{T.}},
+\bauthor{\bsnm{{Sakurai}}, \binits{T.}}:
+\byear{2004},
+\batitle{{The Trigger Mechanism of Solar Flares in a Coronal Arcade with
+  Reversed Magnetic Shear}}.
+\bjtitle{\apj}
+\bvolume{610},
+\bfpage{537}.
+\adsurl{cgi-bin/nph-bib_query?bibcode=2004ApJ...610..537K\&amp;db_key=AST}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Low}}{1997}]{Low97}
+\begin{bchapter}
+\bauthor{\bsnm{{Low}}, \binits{B.C.}}:
+\byear{1997},
+\bctitle{{The role of coronal mass ejections in solar activity}}.
+In: \beditor{\bsnm{{Crooker}}, \binits{N.}},
+\beditor{\bsnm{{Joselyn}}, \binits{J.A.}},
+\beditor{\bsnm{{Feynman}}, \binits{J.}} (eds.)
+\bbtitle{Coronal Mass Ejection},
+\bpublisher{Geophys. Monogr. Ser. 99, AGU}, \blocation{???},
+\bfpage{39}.
+\end{bchapter}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Melrose}}{2004}]{Melrose04}
+\begin{barticle}
+\bauthor{\bsnm{{Melrose}}, \binits{D.}}:
+\byear{2004},
+\batitle{{Conservation of both current and helicity in a quadrupolar model for
+  solar flares}}.
+\bjtitle{\solphys}
+\bvolume{221},
+\bfpage{121}.
+\doiurl{10.1023/B:SOLA.0000033358.64885.3a}.
+\adsurl{cgi-bin/nph-bib_query?bibcode=2004SoPh..221..121M\&db_key=AST}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Moffatt}}{1969}]{Moffatt69}
+\begin{barticle}
+\bauthor{\bsnm{{Moffatt}}, \binits{H.K.}}:
+\byear{1969},
+\batitle{{The degree of knottedness of tangled vortex lines}}.
+\bjtitle{J. Fluid Mech.}
+\bvolume{35},
+\bfpage{117}.
+\end{barticle}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Rust}}{1994}]{Rust94}
+\begin{barticle}
+\bauthor{\bsnm{{Rust}}, \binits{D.M.}}:
+\byear{1994},
+\batitle{{Spawning and shedding helical magnetic fields in the solar
+  atmosphere}}.
+\bjtitle{\grl}
+\bvolume{21},
+\bfpage{241}.
+\adsurl{cgi-bin/nph-bib_query?bibcode=1994GeoRL..21..241R\&db_key=AST}.
+\end{barticle}
+\endbibitem
+
+\end{thebibliography}
