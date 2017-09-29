@@ -16,3 +16,6 @@ zip:
 	rm -rf $(temp)/
 	mv $(temp).zip release/
 
+push-to-github:
+	git push -u github master
+
