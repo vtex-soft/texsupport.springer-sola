@@ -2,15 +2,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org566145e">1. Getting started</a></li>
-<li><a href="#org528af34">2. Package content</a></li>
-<li><a href="#org10b115b">3. Submission</a></li>
-<li><a href="#orgb71b09a">4. Bug reports</a></li>
+<li><a href="#org7df5908">1. Getting started</a></li>
+<li><a href="#org735d9d7">2. Package content</a></li>
+<li><a href="#orgcaa3315">3. Submission</a></li>
+<li><a href="#org87cf854">4. Bug reports</a></li>
 </ul>
 </div>
 </div>
 
-<a id="org566145e"></a>
+
+<a id="org7df5908"></a>
 
 # Getting started
 
@@ -20,32 +21,32 @@ package and unzip it.
 Rename the folder `sola-project-template` to `<your-project-name>`.
 
 
-<a id="org528af34"></a>
+<a id="org735d9d7"></a>
 
 # Package content
 
 -   sty/ 
-    -   spr-sola-addons.sty
-    -   solarphysics.cls
-    -   orcid.eps
+    -   `spr-sola-addons.sty`
+    -   `solarphysics.cls`
+    -   `orcid.eps`
 
 -   bst/
-    -   spr-mp-sola.bst - bibtex style file
+    -   `spr-mp-sola.bst` - bibtex style file
 
 -   example/ - Sample paper. It contains useful information about typseting article  with solarphysics class file. 
-    -   sola<sub>example</sub><sub>6.tex</sub>
-    -   sola<sub>example</sub><sub>6.pdf</sub>
-    -   sola<sub>example</sub><sub>6.bbl</sub>
-    -   bib/sola<sub>bibliography</sub><sub>example.bib</sub> - bibliography database
-    -   img/fig1\*.eps
+    -   `sola_example_6.tex`
+    -   `sola_example_6.pdf`
+    -   `sola_example_6.bbl`
+    -   `bib/sola_bibliography_example.bib` - bibliography database
+    -   `img/fig1*.eps`
 
 -   template/ 
-    -   template.tex            - template file
-    -   sola<sub>example</sub><sub>labels.txt</sub> - extra information for labelling
-    -   sola<sub>keyword</sub><sub>list.txt</sub>   - keyword list
+    -   `template.tex`            - template file
+    -   `sola_example_labels.txt` - extra information for labelling
+    -   `sola_keyword_list.txt`   - keyword list
 
 
-<a id="org10b115b"></a>
+<a id="orgcaa3315"></a>
 
 # Submission
 
@@ -53,7 +54,7 @@ Submit one single file as a zip archive.
 Pack your root folder `<your-project-name>` with files and subfolders.
 
 
-<a id="orgb71b09a"></a>
+<a id="org87cf854"></a>
 
 # Bug reports
 

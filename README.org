@@ -1,3 +1,5 @@
+#+OPTIONS: _:nil
+
 * Getting started
 
   Download
@@ -8,24 +10,24 @@
 * Package content
 
   - sty/ 
-    - spr-sola-addons.sty
-    - solarphysics.cls
-    - orcid.eps
+    - ~spr-sola-addons.sty~
+    - ~solarphysics.cls~
+    - ~orcid.eps~
 
   - bst/
-    - spr-mp-sola.bst - bibtex style file
+    - ~spr-mp-sola.bst~ - bibtex style file
 
   - example/ - Sample paper. It contains useful information about typseting article  with solarphysics class file. 
-    - sola_example_6.tex
-    - sola_example_6.pdf
-    - sola_example_6.bbl
-    - bib/sola_bibliography_example.bib - bibliography database
-    - img/fig1*.eps
+    - ~sola_example_6.tex~
+    - ~sola_example_6.pdf~
+    - ~sola_example_6.bbl~
+    - ~bib/sola_bibliography_example.bib~ - bibliography database
+    - ~img/fig1*.eps~
 
   - template/ 
-    - template.tex            - template file 
-    - sola_example_labels.txt - extra information for labelling 
-    - sola_keyword_list.txt   - keyword list
+    - ~template.tex~            - template file 
+    - ~sola_example_labels.txt~ - extra information for labelling 
+    - ~sola_keyword_list.txt~   - keyword list
       
 * Submission
 
