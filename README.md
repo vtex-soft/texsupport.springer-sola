@@ -2,14 +2,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5e580de">1. Getting started</a></li>
-<li><a href="#orgbcd6ae6">2. Package content</a></li>
-<li><a href="#org4b337f6">3. Submission</a></li>
+<li><a href="#org566145e">1. Getting started</a></li>
+<li><a href="#org528af34">2. Package content</a></li>
+<li><a href="#org10b115b">3. Submission</a></li>
+<li><a href="#orgb71b09a">4. Bug reports</a></li>
 </ul>
 </div>
 </div>
 
-<a id="org5e580de"></a>
+<a id="org566145e"></a>
 
 # Getting started
 
@@ -19,7 +20,7 @@ package and unzip it.
 Rename the folder `sola-project-template` to `<your-project-name>`.
 
 
-<a id="orgbcd6ae6"></a>
+<a id="org528af34"></a>
 
 # Package content
 
@@ -44,10 +45,18 @@ Rename the folder `sola-project-template` to `<your-project-name>`.
     -   sola<sub>keyword</sub><sub>list.txt</sub>   - keyword list
 
 
-<a id="org4b337f6"></a>
+<a id="org10b115b"></a>
 
 # Submission
 
 Submit one single file as a zip archive. 
 Pack your root folder `<your-project-name>` with files and subfolders.
+
+
+<a id="orgb71b09a"></a>
+
+# Bug reports
+
+Please submit bug report or feature requests
+at [github page](https://github.com/vtex-soft/texsupport.springer-sola/issues).
 

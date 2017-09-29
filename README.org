@@ -32,3 +32,7 @@
   Submit one single file as a zip archive. 
   Pack your root folder =<your-project-name>= with files and subfolders.
   
+* Bug reports
+
+  Please submit bug report or feature requests
+  at [[https://github.com/vtex-soft/texsupport.springer-sola/issues][github page]].
