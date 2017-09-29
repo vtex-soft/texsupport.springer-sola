@@ -1,7 +1,7 @@
 * Getting started
 
   Download
-  [sola-project]
+  [[https://github.com/vtex-soft/texsupport.springer-sola/raw/master/release/sola-project-template.zip][sola-project-template]]
   package and unzip it.
   Rename the folder =sola-project-template= to =<your-project-name>=.
 
