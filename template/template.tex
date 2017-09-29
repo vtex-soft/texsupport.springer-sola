@@ -1,3 +1,5 @@
+\RequirePackage{etoolbox}
+\csdef{input@path}{{../sty/}{img/}}%
 %% Template.tex; Solar Physics
 %% 
 \documentclass[namedreferences]{solarphysics}
@@ -120,8 +122,8 @@
 %
 % Using BibTeX
 %
-% \bibliographystyle{spr-mp-sola}
-% \bibliography{<bib file>}  
+% \bibliographystyle{../bst/spr-mp-sola}
+% \bibliography{/bib/<bib file>}
 %
 % Without BibTeX 
 % \begin{thebibliography}{}

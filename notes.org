@@ -1,0 +1,17 @@
+* note 1
+  spr-sola-addons option "linksfromyear" is tested with:
+	1. texlive/2008 - natbib 8.1,   hyperref v6.78f
+	2. texlive/2009 - natbib 8.31,  hyperref v6.79a
+	3. texlive/2010 - natbib 8.31a, hyperref v6.81g
+     When hyperref is loaded make a hyperlink only from year component 
+     of the cite command. It solves the problem of overfull boxes when dvips driver is used.
+     It might not work with an older natbib packages.
+     Citation style should be an author-year, and the hyperref should be loaded somewhere in preamble.
+     Use "nolinksfromyear" if you want to disable it.
+
+* note 2
+  spr-sola-addons loads a natbib package. Use "nonatbib" option if you don't want to load it.
+
+* note 3
+  Option "showbiblabels" outputs \bibitem label on every bibitem end (command \endbibitem). 
+  This option should be used  just for compatibility while citing a document.

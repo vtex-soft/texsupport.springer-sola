@@ -1,15 +1,16 @@
+\RequirePackage{etoolbox}
+\csdef{input@path}{{../sty/}{img/}}%
+%
 \documentclass[namedreferences]{solarphysics}
 
 \usepackage[hyperref,optionalrh,showbiblabels]{spr-sola-addons} % For Solar Physics 
 %\usepackage[optionalrh]{spr-sola-addons} % For Solar Physics 
-%\usepackage{epsfig}          % For eps figures, old commands
-\usepackage{graphicx}        % For eps figures, newer & more powerfull
-%\usepackage{courier}         % Change the \texttt command to courier style
+% \usepackage{epsfig}
+\usepackage{graphicx}        % For eps figures
 %\usepackage{amssymb}        % useful mathematical symbols
 \usepackage{color}           % For color text: \color command
 \usepackage{breakurl}        % For breaking URLs easily trough lines
 \def\UrlFont{\sf}            % define the fonts for the URLs
-
 % General definitions
 % please place your own definitions here and don't use \def but
 % \newcommand{}{} or 
@@ -78,7 +79,7 @@
 \title{Article preparation guidelines\\ {\it Solar Physics}}
 
 \author[addressref={aff1,aff2,aff3},corref,email={e-mail.a@mail.com}]{\inits{F.N.}\fnm{F. Name}~\lnm{Author-a}}%\sep
-\author[addressref=aff1,email={e-mail.b@mail.com}]{\inits{F.}\fnm{Fisrt}~\lnm{Author-b}}%\sep
+\author[addressref=aff1,email={e-mail.b@mail.com}]{\inits{F.}\fnm{First}~\lnm{Author-b}}%\sep
 \author[corref,email={e-mail.c@mail.com}]{\inits{S.}\fnm{Second}~\lnm{Author-c}}%\sep
 \author{\inits{T.}\fnm{Third}~\lnm{Author-x}}
 %\author{\inits{}\fnm{}~\lnm{}\orcid{}}
@@ -740,9 +741,9 @@ just for compatibility while citing a document (see the references below).
 Don't forget to remove the option when document will be finished.
 
      % format of references provided by the journal (.bst)
-\bibliographystyle{spr-mp-sola}
+\bibliographystyle{../bst/spr-mp-sola}
      % name your Bibtex file containing your references (.bib)
-\bibliography{sola_bibliography_example}  
+\bibliography{bib/sola_bibliography_example}
 
      % Checking: look if the file containing the ``\bibitem'' exits
      %           so check if the .bbl file exist (bibTeX compilation)
