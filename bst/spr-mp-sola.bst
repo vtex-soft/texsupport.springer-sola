@@ -1,6 +1,6 @@
 %% This is file `spr-mp-sola.bst'
 %%
-%% Please submit bugs or your comments to latex-support@vtex.lt
+%% Please submit bugs or your comments to vtex@vtex.lt
 %%
 %% Sorting entries is done by name and year fields!
 %%
@@ -1231,11 +1231,33 @@ FUNCTION {format.adsurl}
   if$
 }
 
-% Striping "http://dx.doi.org/" from begin of doi
+FUNCTION {fix.doi.doimain}{
+  't := % content
+  t text.length$ #10 >
+    {
+      t #1 #10 substring$ "http://dx." = 
+        {
+          "https://" t #11 global.max$ substring$ * 't :=
+        }
+        {
+          t #1 #4 substring$ "http" = 
+            'skip$
+            { "https://doi.org/" t * 't := }
+          if$
+        }
+      if$	
+    }
+    'skip$
+  if$ 
+  t 
+}
+
+
+% Ensuring "https://doi.org/" at begin of doi
 FUNCTION {format.doi}
 { doi empty$
      {""}
-     { "\doiurl{" doi "http://dx.doi.org/" strip.at.begin * "}" * }
+     { "\doiurl{" doi fix.doi.doimain * "}" * }
   if$
 }
 
@@ -2524,7 +2546,7 @@ SORT
 
 FUNCTION {write.preambule}
 { "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
-  "% BibTex style file: spr-mp-sola.bst (nameyear), 2015-03-09" write$ newline$
+  "% BibTex style file: spr-mp-sola.bst (nameyear), 2014-02-13" write$ newline$
   "\ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi" write$ newline$
   "\ifx\binits    \undefined \def\binits#1{#1}\fi" write$ newline$
   "\ifx\bauthor   \undefined \def\bauthor#1{#1}\fi" write$ newline$
@@ -2570,7 +2592,7 @@ FUNCTION {begin.bib}
   "\ifx\bcomment  \undefined \def\bcomment#1{#1}\fi" write$ newline$
   "\ifx\oauthor   \undefined \def\oauthor#1{#1}\fi" write$ newline$
   "\ifx\citeauthoryear \undefined\def \citeauthoryear#1{#1}\fi" write$ newline$
-  "\ifx\endbibitem\undefined \def\endbibitem{}\fi" write$ newline$
+  "\def\endbibitem {}" write$ newline$
   "\ifx\bconflocation  \undefined \def\bconflocation#1{#1} \fi" write$ newline$
 }
 EXECUTE {begin.bib}
