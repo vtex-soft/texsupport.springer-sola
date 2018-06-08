@@ -51,7 +51,7 @@
                1. "," taken off from the \inlinecite
     * 2009.06.02
           o spr-mp-sola.bst and spr-mp-sola-cnd.bst:
-               1. doi links out to http://dx.doi.org (using with \usepackage{hyperref}])
+               1. doi links out to https://doi.org (using with \usepackage{hyperref}])
     * 2008.06.18
           o natbib option added to spr-sola-addons.sty. Use this option to load a natbib package. (\usepackage[optionalrh,natbib]{spr-sola-addons})
     * 2008.04.23
