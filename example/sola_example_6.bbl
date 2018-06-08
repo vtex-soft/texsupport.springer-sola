@@ -27,7 +27,7 @@
 \ifx\binstitute  \undefined \def\binstitute#1{#1}\fi
 \ifx\bpublisher  \undefined \def\bpublisher#1{#1}\fi
 \ifx\doiurl    \undefined
-  \def\doiurl#1{\href{http://dx.doi.org/#1}{\textsf{DOI}}}\fi
+  \def\doiurl#1{\href{https://doi.org/#1}{\textsf{DOI}}}\fi
 \ifx\arxivurl  \undefined
   \def\arxivurl#1{\href{http://arxiv.org/abs/#1}{\textsf{arXiv}}}\fi
 \ifx\adsurl    \undefined

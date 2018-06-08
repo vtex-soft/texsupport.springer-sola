@@ -24,7 +24,7 @@
 % 2013-12-19 -- added fields: arxiv, adsurl.
 %               Striping "http://arxiv.org/abs/" from begin of arxiv.
 %               Striping "http://adsabs.harvard.edu/" + "abs/" from begin of adsurl.
-%               Striping "http://dx.doi.org/" from begin of doi.
+%               Striping "https://doi.org/" from begin of doi.
 %               Sorting takes into account initials, not names.
 % 2014-01-28 -- escaping "%" in url and adsurl fields.
 % 2014-02-13 -- removed last page from output.
@@ -2582,7 +2582,7 @@ FUNCTION {begin.bib}
     { preamble$ write$ newline$ }
   if$
   write.preambule
-  "\ifx\doiurl    \undefined \def\doiurl#1{\href{http://dx.doi.org/#1}{\textsf{DOI}}}\fi" write$ newline$
+  "\ifx\doiurl    \undefined \def\doiurl#1{\href{https://doi.org/#1}{\textsf{DOI}}}\fi" write$ newline$
   "\ifx\arxivurl  \undefined \def\arxivurl#1{\href{http://arxiv.org/abs/#1}{\textsf{arXiv}}}\fi" write$ newline$
   "\ifx\adsurl    \undefined \def\adsurl#1{\href{http://adsabs.harvard.edu/abs/#1}{\textsf{ADS}}}\fi" write$ newline$
   "\ifx\botherref \undefined \def\botherref#1{}\fi" write$ newline$
