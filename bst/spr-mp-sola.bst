@@ -1,6 +1,6 @@
 %% This is file `spr-mp-sola.bst'
 %%
-%% Please submit bugs or your comments to vtex@vtex.lt
+%% Please submit bugs or your comments to latex-support@vtex.lt
 %%
 %% Sorting entries is done by name and year fields!
 %%
@@ -2582,7 +2582,7 @@ FUNCTION {begin.bib}
     { preamble$ write$ newline$ }
   if$
   write.preambule
-  "\ifx\doiurl    \undefined \def\doiurl#1{\href{http://dx.doi.org/#1}{\textsf{DOI}}}\fi" write$ newline$
+  "\ifx\doiurl    \undefined \def\doiurl#1{\href{https://doi.org/#1}{\textsf{DOI}}}\fi" write$ newline$
   "\ifx\arxivurl  \undefined \def\arxivurl#1{\href{http://arxiv.org/abs/#1}{\textsf{arXiv}}}\fi" write$ newline$
   "\ifx\adsurl    \undefined \def\adsurl#1{\href{http://adsabs.harvard.edu/abs/#1}{\textsf{ADS}}}\fi" write$ newline$
   "\ifx\botherref \undefined \def\botherref#1{}\fi" write$ newline$
