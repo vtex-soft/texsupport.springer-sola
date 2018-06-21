@@ -1,5 +1,5 @@
 \begin{thebibliography}{13}
-% BibTex style file: spr-mp-sola.bst (nameyear), 2015-03-09
+% BibTex style file: spr-mp-sola.bst (nameyear), 2014-02-13
 \ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi
 \ifx\binits    \undefined \def\binits#1{#1}\fi
 \ifx\bauthor   \undefined \def\bauthor#1{#1}\fi
@@ -27,7 +27,7 @@
 \ifx\binstitute  \undefined \def\binstitute#1{#1}\fi
 \ifx\bpublisher  \undefined \def\bpublisher#1{#1}\fi
 \ifx\doiurl    \undefined
-  \def\doiurl#1{\href{http://dx.doi.org/#1}{\textsf{DOI}}}\fi
+  \def\doiurl#1{\href{https://doi.org/#1}{\textsf{DOI}}}\fi
 \ifx\arxivurl  \undefined
   \def\arxivurl#1{\href{http://arxiv.org/abs/#1}{\textsf{arXiv}}}\fi
 \ifx\adsurl    \undefined
@@ -39,7 +39,7 @@
 \ifx\bcomment  \undefined \def\bcomment#1{#1}\fi
 \ifx\oauthor   \undefined \def\oauthor#1{#1}\fi
 \ifx\citeauthoryear \undefined\def \citeauthoryear#1{#1}\fi
-\ifx\endbibitem\undefined \def\endbibitem{}\fi
+\def\endbibitem {}
 \ifx\bconflocation  \undefined \def\bconflocation#1{#1} \fi
 
 \bibitem[\protect\citeauthoryear{{Berger}}{1984}]{Berger84}
@@ -89,7 +89,7 @@ In: \beditor{\bsnm{{Ferriz-Mas}}, \binits{A.}},
 \bjtitle{\apj}
 \bvolume{550},
 \bfpage{824}.
-\doiurl{10.1086/319783}.
+\doiurl{https://doi.org/10.1086/319783}.
 \adsurl{cgi-bin/nph-bib_query?bibcode=2001ApJ...550..824B\&db_key=AST}.
 \end{barticle}
 \endbibitem
@@ -186,7 +186,7 @@ In: \beditor{\bsnm{{Crooker}}, \binits{N.}},
 \bjtitle{\solphys}
 \bvolume{221},
 \bfpage{121}.
-\doiurl{10.1023/B:SOLA.0000033358.64885.3a}.
+\doiurl{https://doi.org/10.1023/B:SOLA.0000033358.64885.3a}.
 \adsurl{cgi-bin/nph-bib_query?bibcode=2004SoPh..221..121M\&db_key=AST}.
 \end{barticle}
 \endbibitem
