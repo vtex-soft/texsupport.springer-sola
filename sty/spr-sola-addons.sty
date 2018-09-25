@@ -648,16 +648,13 @@
 \fi
 
 \if@loadnatbib
-	\let\bibhang\relax
-	\let\citeauthoryear\relax
-	\RequirePackage{natbib}
-	\@ifundefined{newblock}{\def\newblock{\hskip .11em plus .33em minus .07em}}{}
-	\@ifundefined{@listctr}{\newcounter{start}\setcounter{start}{0}\def\@listctr{start}}{}
-	\let\inlinecite\citet
-	\let\opencite\citealp
-	\let\shortcite\citeyearpar
-	\let\bibfont\footnotesize
-	\gdef\NAT@bibsetup#1{\kapbib@list}
+  \let\bibhang\relax
+  \let\citeauthoryear\relax
+  \RequirePackage{natbib}
+  \@ifundefined{newblock}{\def\newblock{\hskip .11em plus .33em minus .07em}}{}
+  \@ifundefined{@listctr}{\newcounter{start}\setcounter{start}{0}\def\@listctr{start}}{}
+  \let\bibfont\footnotesize
+  \gdef\NAT@bibsetup#1{\kapbib@list}
 %\else
 %	\newlength{\bibhang}
 \fi
