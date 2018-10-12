@@ -11,7 +11,7 @@
 %% It may be distributed under the terms of the LaTeX Project Public
 %% License, as described in lppl.txt in the base LaTeX distribution.
 %% Either version 1.0 or, at your option, any later version.
-
+%
 % BibTeX programming: Linas Stonys, VTeX, Lithuania, lstonys@vtex.lt 
 %
 % 2009-06-03 -- added letters to the \citeauthoryear{}{} year section (if the same year) 
@@ -28,6 +28,7 @@
 %               Sorting takes into account initials, not names.
 % 2014-01-28 -- escaping "%" in url and adsurl fields.
 % 2014-02-13 -- removed last page from output.
+% 2018-10-11 -- escaping "#" in url and adsurl fields.
 
 ENTRY
   { address
@@ -1167,12 +1168,14 @@ FUNCTION {format.pages}
   if$
 }
 
-FUNCTION {escape.comment}
+FUNCTION {escape.comment.numbersign}
 { 't :=
   "" 's := 
   ""
     { t empty$ not }
     { t #1 #1 substring$ "%" =
+      t #1 #1 substring$ "#" =
+      or
       "\" s = not
       and
         {"\" *}
@@ -1194,7 +1197,7 @@ FUNCTION {format.url}
         {"\url{"}
         {"\burl{"}
       if$
-      url escape.comment * "}" * 
+      url escape.comment.numbersign * "}" * 
     }	
   if$
 }
@@ -1227,7 +1230,7 @@ FUNCTION {format.arxiv}
 FUNCTION {format.adsurl}
 { adsurl empty$
      {""}
-     { "\adsurl{" adsurl "http://adsabs.harvard.edu/" strip.at.begin "abs/" strip.at.begin escape.comment * "}" * }
+     { "\adsurl{" adsurl "http://adsabs.harvard.edu/" strip.at.begin "abs/" strip.at.begin escape.comment.numbersign * "}" * }
   if$
 }
 
@@ -2546,7 +2549,7 @@ SORT
 
 FUNCTION {write.preambule}
 { "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
-  "% BibTex style file: spr-mp-sola.bst (nameyear), 2014-02-13" write$ newline$
+  "% BibTex style file: spr-mp-sola.bst (nameyear), 2018-10-11" write$ newline$
   "\ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi" write$ newline$
   "\ifx\binits    \undefined \def\binits#1{#1}\fi" write$ newline$
   "\ifx\bauthor   \undefined \def\bauthor#1{#1}\fi" write$ newline$
