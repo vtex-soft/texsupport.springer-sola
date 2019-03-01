@@ -2,16 +2,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7df5908">1. Getting started</a></li>
-<li><a href="#org735d9d7">2. Package content</a></li>
-<li><a href="#orgcaa3315">3. Submission</a></li>
-<li><a href="#org87cf854">4. Bug reports</a></li>
+<li><a href="#sec01">1. Getting started</a></li>
+<li><a href="#sec02">2. Package content</a></li>
+<li><a href="#sec03">3. Submission</a></li>
+<li><a href="#sec04">4. Bug reports</a></li>
 </ul>
 </div>
 </div>
 
 
-<a id="org7df5908"></a>
+<a id="sec01"></a>
 
 # Getting started
 
@@ -21,7 +21,7 @@ package and unzip it.
 Rename the folder `sola-project-template` to `<your-project-name>`.
 
 
-<a id="org735d9d7"></a>
+<a id="sec02"></a>
 
 # Package content
 
@@ -46,7 +46,7 @@ Rename the folder `sola-project-template` to `<your-project-name>`.
     -   `sola_keyword_list.txt`   - keyword list
 
 
-<a id="orgcaa3315"></a>
+<a id="sec03"></a>
 
 # Submission
 
@@ -54,7 +54,7 @@ Submit one single file as a zip archive.
 Pack your root folder `<your-project-name>` with files and subfolders.
 
 
-<a id="org87cf854"></a>
+<a id="sec04"></a>
 
 # Bug reports
 

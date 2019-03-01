@@ -39,24 +39,10 @@
 %%
 %%
 %%
-% Changes:
-% 2007.02.23 sectioning counter format amended: fullstop introduced
-%            urlstyle: sans serif
-% 2007.03.23 option: "optionalrh" for optional running title/author
-%            email: sffamily + prefix "e-mail: "
-% 2007.04.12 figure: fullstop; idline
-% 2010.01.26 - entered option solaenum
-% 2010.10.14 - entered option linksfromyear
-% 2011.03.01 - idline + TODAY@JWL
-% 2011.09.20 - linksfromyear doesn't loads natbib anymore. It works with/without natbib.
-% 2012.01.16 - entered option solaromanenum
-% 2015.01.20 - added \address and changed authors + afilliations output.
-% 2015.01.22 - removed option solaenum
-% 2015.01.22 - added option showbiblabels
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{spr-sola-addons}
-             [2015/10/07 v2.01, Springer style for SOLA journal]
+             [2019/03/01 v2.02, Springer style for SOLA journal]
 
 \newif\if@loadnatbib  \@loadnatbibtrue
 \DeclareOption{natbib}{\@loadnatbibtrue}
@@ -191,8 +177,10 @@
 \let\@orcid\relax
 \def\orcid@base{http://orcid.org/}
 \protected\def\orcid#1{\gdef\@orcid{#1}}
-\def\output@orcid{\lower2\p@\hbox{\href{\orcid@base \@orcid}{\includegraphics{orcid}}}}
-
+\IfFileExists{orcid.eps}
+    {\def\orcid@pic{\includegraphics{orcid}}}
+    {\def\orcid@pic{\raise2\p@\hb@xt@9bp{\hss{\small\textbullet\textbullet}\hss}}}
+\def\output@orcid{\lower2\p@\hbox{\vrule\href{\orcid@base \@orcid}{\orcid@pic}}\vrule}
 
 % Author
 \let\saved@author@\author@
