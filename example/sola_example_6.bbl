@@ -1,5 +1,5 @@
 \begin{thebibliography}{13}
-% BibTex style file: spr-mp-sola.bst (nameyear), 2014-02-13
+% BibTex style file: spr-mp-sola.bst (nameyear), 2019-10-09
 \ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi
 \ifx\binits    \undefined \def\binits#1{#1}\fi
 \ifx\bauthor   \undefined \def\bauthor#1{#1}\fi
@@ -26,12 +26,14 @@
 \ifx\barticle  \undefined \def\barticle#1{}\fi
 \ifx\binstitute  \undefined \def\binstitute#1{#1}\fi
 \ifx\bpublisher  \undefined \def\bpublisher#1{#1}\fi
-\ifx\doiurl    \undefined
-  \def\doiurl#1{\href{https://doi.org/#1}{\textsf{DOI}}}\fi
-\ifx\arxivurl  \undefined
-  \def\arxivurl#1{\href{http://arxiv.org/abs/#1}{\textsf{arXiv}}}\fi
+\ifx\doiurl    \undefined \def\doiurl#1{\href{#1}{\textsf{DOI}}}\fi
+\makeatletter
+\def\safeHref#1#2#3{\in@{http}{#2}\ifin@\href{#2}{#3}\else\href{#1#2}{#3}\fi}
+\makeatother
 \ifx\adsurl    \undefined
-  \def\adsurl#1{\href{http://adsabs.harvard.edu/abs/#1}{\textsf{ADS}}}\fi
+  \def\adsurl#1{\safeHref{https://ui.adsabs.harvard.edu/abs/}{#1}{\textsf{ADS}}}\fi
+\ifx\arxivurl  \undefined
+  \def\arxivurl#1{\safeHref{http://arxiv.org/abs/}{#1}{\textsf{arXiv}}}\fi
 \ifx\botherref \undefined \def\botherref#1{}\fi
 \ifx\url       \undefined \def\url#1{\textsf{#1}}\fi
 \ifx\bchapter  \undefined \def\bchapter#1{}\fi
@@ -64,7 +66,7 @@ In: \beditor{\bsnm{{Ferriz-Mas}}, \binits{A.}},
 \bbtitle{Advances in Nonlinear Dynamics},
 \bpublisher{Taylor and Francis Group, London}, \blocation{???},
 \bfpage{345}.
-\adsurl{cgi-bin/nph-bib_query?bibcode=2003and..book..345B\&amp;db_key=PHY}.
+\adsurl{2003and..book..345B}.
 \end{bchapter}
 \endbibitem
 
@@ -90,7 +92,7 @@ In: \beditor{\bsnm{{Ferriz-Mas}}, \binits{A.}},
 \bvolume{550},
 \bfpage{824}.
 \doiurl{https://doi.org/10.1086/319783}.
-\adsurl{cgi-bin/nph-bib_query?bibcode=2001ApJ...550..824B\&db_key=AST}.
+\adsurl{2001ApJ...550..824B}.
 \end{barticle}
 \endbibitem
 
@@ -159,7 +161,7 @@ In: \beditor{\bsnm{{Ferriz-Mas}}, \binits{A.}},
 \bjtitle{\apj}
 \bvolume{610},
 \bfpage{537}.
-\adsurl{cgi-bin/nph-bib_query?bibcode=2004ApJ...610..537K\&amp;db_key=AST}.
+\adsurl{2004ApJ...610..537K}.
 \end{barticle}
 \endbibitem
 
@@ -187,7 +189,7 @@ In: \beditor{\bsnm{{Crooker}}, \binits{N.}},
 \bvolume{221},
 \bfpage{121}.
 \doiurl{https://doi.org/10.1023/B:SOLA.0000033358.64885.3a}.
-\adsurl{cgi-bin/nph-bib_query?bibcode=2004SoPh..221..121M\&db_key=AST}.
+\adsurl{2004SoPh..221..121M}.
 \end{barticle}
 \endbibitem
 
@@ -211,7 +213,7 @@ In: \beditor{\bsnm{{Crooker}}, \binits{N.}},
 \bjtitle{\grl}
 \bvolume{21},
 \bfpage{241}.
-\adsurl{cgi-bin/nph-bib_query?bibcode=1994GeoRL..21..241R\&db_key=AST}.
+\adsurl{1994GeoRL..21..241R}.
 \end{barticle}
 \endbibitem
 

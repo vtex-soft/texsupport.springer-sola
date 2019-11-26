@@ -29,6 +29,7 @@
 % 2014-01-28 -- escaping "%" in url and adsurl fields.
 % 2014-02-13 -- removed last page from output.
 % 2018-10-11 -- escaping "#" in url and adsurl fields.
+% ...        -- newer changes can be seen: https://github.com/vtex-soft/texsupport.springer-sola
 
 ENTRY
   { address
@@ -1226,11 +1227,14 @@ FUNCTION {format.arxiv}
   if$
 }
 
-% Striping "http://adsabs.harvard.edu/" + "abs/" from begin of adsurl 
+% Striping ("http://adsabs.harvard.edu/" or "https://ui.adsabs.harvard.edu/") + "abs/" from begin of adsurl 
 FUNCTION {format.adsurl}
 { adsurl empty$
      {""}
-     { "\adsurl{" adsurl "http://adsabs.harvard.edu/" strip.at.begin "abs/" strip.at.begin escape.comment.numbersign * "}" * }
+     { "\adsurl{" adsurl "http://adsabs.harvard.edu/"    strip.at.begin 
+                         "https://ui.adsabs.harvard.edu/" strip.at.begin   
+                         "abs/" strip.at.begin 
+                         escape.comment.numbersign * "}" * }
   if$
 }
 
@@ -2549,7 +2553,7 @@ SORT
 
 FUNCTION {write.preambule}
 { "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
-  "% BibTex style file: spr-mp-sola.bst (nameyear), 2018-10-11" write$ newline$
+  "% BibTex style file: spr-mp-sola.bst (nameyear), 2019-10-09" write$ newline$
   "\ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi" write$ newline$
   "\ifx\binits    \undefined \def\binits#1{#1}\fi" write$ newline$
   "\ifx\bauthor   \undefined \def\bauthor#1{#1}\fi" write$ newline$
@@ -2585,9 +2589,12 @@ FUNCTION {begin.bib}
     { preamble$ write$ newline$ }
   if$
   write.preambule
-  "\ifx\doiurl    \undefined \def\doiurl#1{\href{https://doi.org/#1}{\textsf{DOI}}}\fi" write$ newline$
-  "\ifx\arxivurl  \undefined \def\arxivurl#1{\href{http://arxiv.org/abs/#1}{\textsf{arXiv}}}\fi" write$ newline$
-  "\ifx\adsurl    \undefined \def\adsurl#1{\href{http://adsabs.harvard.edu/abs/#1}{\textsf{ADS}}}\fi" write$ newline$
+  "\ifx\doiurl    \undefined \def\doiurl#1{\href{#1}{\textsf{DOI}}}\fi" write$ newline$
+  "\makeatletter" write$ newline$
+  "\def\safeHref#1#2#3{\in@{http}{#2}\ifin@\href{#2}{#3}\else\href{#1#2}{#3}\fi}" write$ newline$
+  "\makeatother" write$ newline$
+  "\ifx\adsurl    \undefined \def\adsurl#1{\safeHref{https://ui.adsabs.harvard.edu/abs/}{#1}{\textsf{ADS}}}\fi" write$ newline$
+  "\ifx\arxivurl  \undefined \def\arxivurl#1{\safeHref{http://arxiv.org/abs/}{#1}{\textsf{arXiv}}}\fi" write$ newline$
   "\ifx\botherref \undefined \def\botherref#1{}\fi" write$ newline$
   "\ifx\url       \undefined \def\url#1{\textsf{#1}}\fi" write$ newline$
   "\ifx\bchapter  \undefined \def\bchapter#1{}\fi" write$ newline$
