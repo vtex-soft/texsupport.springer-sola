@@ -1,5 +1,5 @@
 \begin{thebibliography}{13}
-% BibTex style file: spr-mp-sola.bst (nameyear), 2019-10-09
+% BibTex style file: spr-mp-sola.bst (nameyear), 2020-04-01
 \ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi
 \ifx\binits    \undefined \def\binits#1{#1}\fi
 \ifx\bauthor   \undefined \def\bauthor#1{#1}\fi
@@ -64,7 +64,8 @@
 In: \beditor{\bsnm{{Ferriz-Mas}}, \binits{A.}},
 \beditor{\bsnm{{N{\'u}{\~n}ez}}, \binits{M.}} (eds.)
 \bbtitle{Advances in Nonlinear Dynamics},
-\bpublisher{Taylor and Francis Group, London}, \blocation{???},
+\bpublisher{Taylor and Francis Group},
+\blocation{London},
 \bfpage{345}.
 \adsurl{2003and..book..345B}.
 \end{bchapter}
@@ -104,7 +105,8 @@ In: \beditor{\bsnm{{Ferriz-Mas}}, \binits{A.}},
 \bauthor{\bsnm{{Pevtsov}}, \binits{A.A.}}:
 \byear{1999},
 \bbtitle{{Magnetic Helicity in Space and Laboratory Plasmas}},
-\bpublisher{Geophy. Mon. Ser. 111, AGU}, \blocation{???}.
+\bpublisher{Geophy. Mon. Ser. 111, AGU},
+\blocation{Washington, D.C.}.
 \end{bbook}
 \endbibitem
 
@@ -174,7 +176,8 @@ In: \beditor{\bsnm{{Crooker}}, \binits{N.}},
 \beditor{\bsnm{{Joselyn}}, \binits{J.A.}},
 \beditor{\bsnm{{Feynman}}, \binits{J.}} (eds.)
 \bbtitle{Coronal Mass Ejection},
-\bpublisher{Geophys. Monogr. Ser. 99, AGU}, \blocation{???},
+\bpublisher{Geophys. Monogr. Ser. 99, AGU},
+\blocation{Washington, D.C.},
 \bfpage{39}.
 \end{bchapter}
 \endbibitem

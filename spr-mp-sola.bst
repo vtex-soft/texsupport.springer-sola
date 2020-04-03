@@ -312,24 +312,16 @@ FUNCTION {format.pub.address}
         }
       if$
     }
-    { address empty$
-        {publisher empty$
+    { 
+      publisher empty$
             {howpublished} 
             {publisher}
-         if$ 
-         "publisher"  make.tag
-         #1 bother =
-            {", \blocation{???}" *  }
-          'skip$
-         if$
-         output   
-        }
-        {publisher empty$
-            {howpublished } 
-            {springer.publisher } 
-         if$ 
-          "publisher"  make.tag output
-          insert.comma
+      if$ 
+      "publisher"  make.tag output   
+        
+      address empty$
+        'skip$
+        { insert.comma
           address "location" make.tag output
         }
       if$
@@ -954,18 +946,7 @@ FUNCTION {format.volume}
 }
 
 FUNCTION {format.art.vol}
-{ volume n.filter "volume" make.tag 
-  number empty$
-    {"" *}
-    { "(" number "issue" make.tag * ")" * *
-      volume empty$
-        { "there's a number but no volume in " cite$ * warning$ }
-        'skip$
-      if$
-    }
-  if$
-  
-}
+{ volume n.filter "volume" make.tag }
 
 FUNCTION {format.series}
 { series empty$
@@ -2115,6 +2096,7 @@ FUNCTION {unpublished}
   end.element
 }
 
+FUNCTION {software} { misc }
 FUNCTION {default.type} { unpublished }
 
 MACRO {jan} {"January"}
@@ -2553,7 +2535,7 @@ SORT
 
 FUNCTION {write.preambule}
 { "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
-  "% BibTex style file: spr-mp-sola.bst (nameyear), 2019-10-09" write$ newline$
+  "% BibTex style file: spr-mp-sola.bst (nameyear), 2020-04-01" write$ newline$
   "\ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi" write$ newline$
   "\ifx\binits    \undefined \def\binits#1{#1}\fi" write$ newline$
   "\ifx\bauthor   \undefined \def\bauthor#1{#1}\fi" write$ newline$

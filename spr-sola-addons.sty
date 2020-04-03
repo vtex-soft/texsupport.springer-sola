@@ -180,7 +180,7 @@
 \IfFileExists{orcid.eps}
     {\def\orcid@pic{\includegraphics{orcid}}}
     {\def\orcid@pic{\raise2\p@\hb@xt@9bp{\hss{\small\textbullet\textbullet}\hss}}}
-\def\output@orcid{\lower2\p@\hbox{\vrule\href{\orcid@base \@orcid}{\orcid@pic}}\vrule}
+\def\output@orcid{\lower2\p@\hbox{\href{\orcid@base \@orcid}{\orcid@pic}}}
 
 % Author
 \let\saved@author@\author@
@@ -644,11 +644,11 @@
   \let\bibfont\footnotesize
   \gdef\NAT@bibsetup#1{\kapbib@list}
 %\else
-%	\newlength{\bibhang}
+%   \newlength{\bibhang}
 \fi
 
 \def\citefix{%
-	\def\NAT@citex%
+  \def\NAT@citex%
   [##1][##2]##3{%
   \NAT@sort@cites{##3}%
   \let\@citea\@empty
@@ -726,7 +726,7 @@
      \fi
      }}\ifNAT@swa\else\if*##2*\else\NAT@cmt##2\fi
      \if\relax\NAT@date\relax\else\NAT@@close\fi\fi}{##1}{##2}}
-	\let\@citex\NAT@citex
+     \let\@citex\NAT@citex
 }
 
 
@@ -734,10 +734,10 @@
   \if@loadnatbib 
    \citefix
   \else
-    	\def\cite@@label{unknown}%
+      \def\cite@@label{unknown}%
       \let\save@document\document
       \def\document{
-        	\@ifpackageloaded{hyperref}{%
+            \@ifpackageloaded{hyperref}{%
         \gdef\cite@year@hook##1{\hyper@@link[cite]{}{cite.\cite@@label\@extra@b@citeb}{##1}}%
         \gdef\cite@author@hook##1{\hyper@@link[cite]{}{cite.\cite@@label\@extra@b@citeb}{##1}}%
         \gdef\bibcite##1##2{%

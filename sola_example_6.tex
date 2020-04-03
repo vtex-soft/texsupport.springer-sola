@@ -75,33 +75,29 @@
 \begin{article}
 \begin{opening}
 
-\title{Article preparation guidelines\\ {\it Solar Physics}}
+\title{Article Preparation Guidelines for {\it Solar Physics}}
 
-\author[addressref={aff1,aff2,aff3},corref,email={e-mail.a@mail.com}]{\inits{F.N.}\fnm{F. Name}~\lnm{Author-a}}%\sep
-\author[addressref=aff1,email={e-mail.b@mail.com}]{\inits{F.}\fnm{Fisrt}~\lnm{Author-b}}%\sep
-\author[corref,email={e-mail.c@mail.com}]{\inits{S.}\fnm{Second}~\lnm{Author-c}}%\sep
-\author{\inits{T.}\fnm{Third}~\lnm{Author-x}}
+\author[addressref={aff1,aff2,aff3},email={e-mail.a@mail.com}]{\inits{F.N.}\fnm{First~Names}~\lnm{Last~Name~Author-a}\orcid{123-456-7890}}
+\author[addressref=aff1,email={e-mail.b@mail.com}]{\inits{F.}\fnm{First~Names}~\lnm{Last~Name~Author-b}}
+\author[addressref=aff2,corref,email={e-mail.c@mail.com}]{\inits{F.}\fnm{First~Names}~\lnm{Last~Name~Author-c}\orcid{987-654-3210}}
+\author[addressref=aff3]{\inits{T.}\fnm{First~Names}~\lnm{Last~Name~Author-d}}
 %\author{\inits{}\fnm{}~\lnm{}\orcid{}}
-%\author{P.~\surname{Author-a}$^{1}$\sep
-%        E.~\surname{Author-b}$^{1}$\sep
-%        M.~\surname{Author-c}$^{2}$      
-%       }
-
+%   NOTE:  Just one corresponding author [corref]
 %   \institute{$^{1}$ First affiliation
 %                     email: \url{e.mail-a} email: \url{e.mail-b}\\ 
 %              $^{2}$ Second affiliation
 %                     email: \url{e.mail-c} \\
-%             }
+%             \textit{}
 \address[id=aff1]{First very very very very very very very very very
- very very very very very very very very very very very very very very very very very very long affiliation}
-\address[id=aff2]{Second affiliation}
-\address[id=aff3]{Third affiliation}
+ very very very very very very very very very very very very very very very very very very long affiliation and address}
+\address[id=aff2]{Institution, City, State, Country}
+\address[id=aff3]{Third affiliation and address}
 
 \runningauthor{Author-a et al.}
-\runningtitle{Example paper}
+\runningtitle{\textit{Solar Physics} Example Article}
 
 \begin{abstract}
-This is an example paper for manuscripts for the journal {\it Solar 
+This is an example article for manuscripts for the journal {\it Solar 
 Physics}. It contains the basic commands to write an article as well 
 as some explanations for defining equations, figures, tables,
 and references.    
@@ -120,7 +116,7 @@ end, and that there are not extraneous references, preferably by using
 \BibTeX . If you do not run a spell check on your article, do not expect 
 your reader to believe that you were any more careful in your science. 
 Choose your keywords from the list provided in the file 
-\texttt{SOLA\us keyword\us list.txt}.  
+\texttt{sola\us keyword\us list.txt}.  
 \end{abstract}
 \keywords{Flares, Dynamics; Helicity, Magnetic; Magnetic fields, Corona}
 \end{opening}
@@ -140,11 +136,11 @@ is included within this file, but commented out (with a \%).
 Un-commenting the \LaTeX\ commands permits one to show their 
 results in the compiled file.   
     
-  %{\S}{\bf --- Road map of the paper} \\
-    % When writing a paper, it is worth to define a title for each paragraph:
-    %   gives a roadmap for the paper logic.
+  %{\S}{\bf --- Road map of the article} \\
+    % When writing a article, it is worth to define a title for each paragraph:
+    %   gives a roadmap for the article logic.
     % Replacing automatically all the ``%{\S}{\bf'' by ``{\S}{\bf'' 
-    % brings these titles in the typeset of the paper.
+    % brings these titles in the typeset of the article.
  Section~\ref{S-general} gives examples and some general information
 to aid writing text with citations (Section~\ref{S-text})
 and defining labels (Section~\ref{S-labels}).
@@ -159,13 +155,14 @@ which can contain figures and tables (Figure~\ref{F-appendix},
 Table~\ref{T-appendix}).
 There is a list of abbreviations used for the main journals (see the
 beginning of this \texttt{.tex} file, or the companion 
- \verb+SOLA_example_labels.tex+ 
+ \verb+sola_example_labels.tex+ 
 file, for the definition of the \LaTeX\ commands.
 Our conclusions are given in Section~\ref{S-Conclusion}. 
 
 \section{Authors, emails and affiliations}
 \label{S-aug}
-Authors, their emails and affiliations should be typsed with \verb+\author[key=val,key,..]{}+ and \verb+\address[key=val]{}+ commands.
+Authors, their emails and their affiliations should be typsed with commands: 
+\verb+\author[key=val,key,..]{}+ and \verb+\address[key=val]{}+.
 
 Command \verb+\author+  has an optional parameter with available keys: 
 \begin{itemize}
@@ -178,7 +175,7 @@ Mandatory parameter -- authors name, which should be tagged in three commands:
 \item \verb+\inits+ -- is used for author's initials (will be outputed before author's name in the footnotes area).
 \item \verb+\fnm+ -- is used for author's first name.
 \item \verb+\lnm+ -- is used for author's last name.
-\item \verb+\orcid+ -- is used for author's ORCID identifier (will be outputed orcid.eps(pdf) image with a link to \verb+http://orcid.org/+\textit{identifier}.
+\item \verb+\orcid+ -- is used for author's ORCID identifier (will be outputed \textit{orcid.eps} image with a link to \verb+https://orcid.org/+\textit{identifier}.
 \end{itemize}
 
 Command \verb+\address+ has optional parameter  with one key -- \texttt{id}, which is used to combine author and affiliation with the same mark.
@@ -243,15 +240,15 @@ forget the exact defined label ({\it e.g.} case sensitive).
 A label should be simple
 while reflecting precisely what it refers to. It is very helpful
 to create a small auxiliary file where all these labels are
-kept (see the \verb+SOLA_example_labels.tex+ 
+kept (see the \verb+sola_example_labels.tex+ 
 accompanying the present file).   
-It also provides a roadmap of the paper with the list
+It also provides a roadmap of the article with the list
 of the sections and subsections with the equations introduced in each.     
 Including the full command ({\it e.g.} \verb+Section~\ref{S-labels}+)
 permits one to do a simple copy/paste when needed (rather than moving
 through the \texttt{.tex} file looking for the definition of the label). 
 It is also useful that  
-\verb+SOLA_example_labels.tex+   file contains the copy of the 
+\verb+sola_example_labels.tex+   file contains the copy of the 
 new commands, as well as the citation commands. For references,
 the simple convention of concatenating the first author's name and the year
 (and eventually a letter), is simple enough to be easily remembered.
@@ -606,7 +603,7 @@ at compilation (using the information given in the \texttt{.bst} file).
   %{\S}{\bf --- Downloading references} \\
   The references in \BibTeX\ format can be downloaded from the 
 Astrophysics Data System (ADS), then stored
-in \verb+sola_bibliography_example.bib+  (file name of the present example).
+in \verb+sola_bibliography_example.bib+ (file\linebreak name of the present example).
 The main extra work is to define a proper and easy label for each citation
 (a convenient one is simply first-author-name-year).  Furthermore, it is better
 to have the journal names defined by commands (for example 
@@ -652,9 +649,9 @@ in the file with the \verb+.bbl+ extension.
 \subsection{Miscellaneous Other Features} %%%%%%%%%%%%%%
       \label{S-Miscellaneous} 
 Long URL's can be quite messy when broken across lines
-\texttt{ http://gong.nso.edu/data/magmap/} as normal text,
-however the \texttt{breakurl} package does a nice job of this, \textit{e.g.}% \linebreak
-\url{http://gong.nso.edu/data/magmap/}.
+\texttt{http://gong.nso.edu/data/magmap/} as normal text,
+however the \texttt{breakurl} package does a nice job of this, 
+\textit{e.g.}~\url{http://gong.nso.edu/data/magmap/}.
    
 \section{Conclusion} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       \label{S-Conclusion} 
@@ -733,7 +730,7 @@ of the \verb+\cite+ commands (Section~\ref{S-references}).
 Besides the usual items, it includes the title of the article 
 and the concluding page number. 
    
-There is an option \texttt{showbiblabels} which adds a \verb+\bibitem+ 
+There is an option \texttt{showbiblabels} that adds a \verb+\bibitem+ 
 label at the end of every bibliography item. Label output is made on \verb+\endbibitem+ command.
 This option should be used 
 just for compatibility while citing a document (see the references below). 

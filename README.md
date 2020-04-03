@@ -1,63 +1,93 @@
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec01">1. Getting started</a></li>
-<li><a href="#sec02">2. Package content</a></li>
-<li><a href="#sec03">3. Submission</a></li>
-<li><a href="#sec04">4. Bug reports</a></li>
-</ul>
-</div>
-</div>
+# texsupport.springer-sola
+
+LaTeX author support files for the journal 
+[Solar Physics](https://www.springer.com/journal/11207).
+
+## Contents
+
+The following files are given in the repository (or directly in `.zip` archive):
+
+### Sample
+
+-   `sola_example_6.tex` - sample paper. It contains useful information about 
+    typesetting article with `solarphysics` class file.
+-   `sola_example_6.pdf` - output after LaTeX compilation:
+
+        latex sola_example_6.tex
+        bibtex sola_example_6.aux
+        latex sola_example_6.tex
+        latex sola_example_6.tex
+        dvips sola_example_6.dvi
+        ps2pdf sola_example_6.ps
+
+### Files included at compilation
+
+-   Four figures: `fig1a.eps`, `fig1b.eps`, `fig1c.eps`, `fig1d.eps`
+-   [ORCID](https://orcid.org/) logo: `orcid.eps`.
+    ([SVG](https://figshare.com/articles/ORCID_iD_icon_graphics/5008697)&rarr;[PS](https://cairosvg.org/)&rarr;[EPS](https://www.ghostscript.com/doc/Devices.htm#EPS)).
+-   Bibliography: `sola_bibliography_example.bib`.
 
 
-<a id="sec01"></a>
+### Extra information
 
-# Getting started
+-   `sola_keyword_list.txt`
+-   `sola_example_labels.tex`
+-   `sola_instructions_for_authors.txt`
 
-Download
-[sola-project-template](https://github.com/vtex-soft/texsupport.springer-sola/raw/master/release/sola-project-template.zip)
-package and unzip it.
-Rename the folder `sola-project-template` to `<your-project-name>`.
+### Formatting files  
 
+-   `solarphysics.cls`
+-   `spr-sola-addons.sty`
+-   `spr-mp-sola.bst`
 
-<a id="sec02"></a>
+### Template
 
-# Package content
+-   `template.tex`
 
--   sty/ 
-    -   `spr-sola-addons.sty`
-    -   `solarphysics.cls`
-    -   `orcid.eps`
+## Setup
 
--   bst/
-    -   `spr-mp-sola.bst` - bibtex style file
+-   Clone the repository or download the `.zip` archive.
+-   Install LaTeX style files (`solarphysics.cls`, `spr-sola-addons.sty`, `spr-mp-sola.bst`) 
+    in your TeX system or place them in the same directory where your `*.tex` file is.
+-   Read the instructions (`sola_example_6.pdf`) for the preparation of your LaTeX document.
+-   Use the template file `template.tex` to prepare your manuscript.
 
--   example/ - Sample paper. It contains useful information about typseting article  with solarphysics class file. 
-    -   `sola_example_6.tex`
-    -   `sola_example_6.pdf`
-    -   `sola_example_6.bbl`
-    -   `bib/sola_bibliography_example.bib` - bibliography database
-    -   `img/fig1*.eps`
+## Notifications
 
--   template/ 
-    -   `template.tex`            - template file
-    -   `sola_example_labels.txt` - extra information for labelling
-    -   `sola_keyword_list.txt`   - keyword list
+-   `spr-sola-addons` has option "linksfromyear"
+    and when `hyperref` is loaded it makes a hyperlink only 
+    from year component of the cite command. This solves 
+    the problem of overfull boxes when dvips driver is used.
+    It might not work with an older natbib packages.
+    Citation style should be an author-year, and the hyperref 
+    should be loaded somewhere in preamble.
+    Use "nolinksfromyear" if you want to disable it.
+-   `spr-sola-addons` loads a `natbib` package. 
+    Use "nonatbib" option if you don't want to load it.
+-   Option "showbiblabels" outputs `\bibitem` label on every 
+    bibitem end (command `\endbibitem`). This option should be used 
+    just for compatibility while citing a document.
 
+## Troubleshooting
 
-<a id="sec03"></a>
+-   If you are using `bibtex8` version, don't forget an option `-w` ("wolfgang"). 
+    Otherwise, You'll get an error:
 
-# Submission
+        Sorry---you've exceeded BibTeX's wizard-defined function space 3000
 
-Submit one single file as a zip archive. 
-Pack your root folder `<your-project-name>` with files and subfolders.
+-   If You are getting error like:
 
+        Sorry---you've exceeded BibTeX's number of string global-variables
 
-<a id="sec04"></a>
+    that means Your `bibtex` version is too old. You should download latest 
+    version 0.99d. This version fixes all limitation issues. 
+    (One of the binaries location is [here](http://ftp.math.utah.edu/pub/texlive-utah/bin/)).
+    
 
-# Bug reports
+## Bug reports
 
-Please submit bug report or feature requests
-at [github page](https://github.com/vtex-soft/texsupport.springer-sola/issues).
+Please submit bug reports and/or feature requests
+at [GitHub page](https://github.com/vtex-soft/texsupport.springer-sola/issues) or 
+[latex-support@vtex.lt](mailto:latex-support@vtex.lt).
+
 
