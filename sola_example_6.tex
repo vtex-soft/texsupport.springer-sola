@@ -8,7 +8,7 @@
 %\usepackage{amssymb}        % useful mathematical symbols
 \usepackage{color}           % For color text: \color command
 \usepackage{breakurl}        % For breaking URLs easily trough lines
-\def\UrlFont{\sf}            % define the fonts for the URLs
+\def\UrlFont{\rm}                        % define the fonts for the URLs
 
 % General definitions
 % please place your own definitions here and don't use \def but
@@ -16,7 +16,7 @@
 % \renewcommand{}{} if it is already defined in LaTeX
 
 \newcommand{\BibTeX}{\textsc{Bib}\TeX}
-\newcommand{\etal}{{\it et al.}}
+\newcommand{\etal}{et al.}
 
 % Definitions for equations
 \renewcommand{\vec}[1]{{\mathbfit #1}}
@@ -649,7 +649,7 @@ in the file with the \verb+.bbl+ extension.
 \subsection{Miscellaneous Other Features} %%%%%%%%%%%%%%
       \label{S-Miscellaneous} 
 Long URL's can be quite messy when broken across lines
-\texttt{http://gong.nso.edu/data/magmap/} as normal text,
+\textrm{http://gong.nso.edu/data/magmap/} as normal text,
 however the \texttt{breakurl} package does a nice job of this, 
 \textit{e.g.}~\url{http://gong.nso.edu/data/magmap/}.
    

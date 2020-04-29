@@ -635,10 +635,10 @@ FUNCTION {cite.author.editor}
   s #1 "{vv~}{ll}" format.name$
   s num.names$ duplicate$
   #3 >
-    { pop$ " \textit{et~al.}" * }
+    { pop$ " et~al." * }
     { #3 =
         { s #3 "{vv~}{ll}{ jj}{ f}" format.name$ "others" =
-            { " \textit{et~al.}"  * }
+            { " et~al."  * }
             { ", " * s #2 "{vv~}{ll}" format.name$ * 
              ", and " * s #3 "{vv~}{ll}" format.name$ *  
             }
@@ -646,7 +646,7 @@ FUNCTION {cite.author.editor}
         }
         {s num.names$ #2 =
                 {s #2 "{vv~}{ll}{ jj}{ f}" format.name$ "others" =
-                    { " \textit{et~al.}"  * }
+                    { " et~al."  * }
                      { " and " * s #2 "{vv~}{ll}" format.name$ * }
                    if$
                  }
@@ -2546,9 +2546,9 @@ FUNCTION {write.preambule}
   "\ifx\bissue    \undefined \def\bissue#1{#1}\fi" write$ newline$
   "\ifx\bfpage    \undefined \def\bfpage#1{#1}\fi" write$ newline$
   "\ifx\blpage    \undefined \def\blpage #1{#1}\fi" write$ newline$
-  "\ifx\burl      \undefined \def\burl#1{\textsf{#1}}\fi" write$ newline$
-  "\ifx\href      \undefined \def\href#1#2{\textsf{#2}}\fi" write$ newline$
-  "\ifx\betal     \undefined \def\betal{\textit{et al.}}\fi" write$ newline$
+  "\ifx\burl      \undefined \def\burl#1{#1}\fi" write$ newline$
+  "\ifx\href      \undefined \def\href#1#2{#2}\fi" write$ newline$
+  "\ifx\betal     \undefined \def\betal{et al.}\fi" write$ newline$
   "\ifx\bctitle   \undefined \def\bctitle#1{#1}\fi" write$ newline$
   "\ifx\beditor   \undefined \def\beditor#1{#1}\fi" write$ newline$
   "\ifx\bbtitle   \undefined \def\bbtitle#1{\textit{#1}}\fi" write$ newline$
@@ -2571,14 +2571,14 @@ FUNCTION {begin.bib}
     { preamble$ write$ newline$ }
   if$
   write.preambule
-  "\ifx\doiurl    \undefined \def\doiurl#1{\href{#1}{\textsf{DOI}}}\fi" write$ newline$
+  "\ifx\doiurl    \undefined \def\doiurl#1{\href{#1}{DOI}}\fi" write$ newline$
   "\makeatletter" write$ newline$
   "\def\safeHref#1#2#3{\in@{http}{#2}\ifin@\href{#2}{#3}\else\href{#1#2}{#3}\fi}" write$ newline$
   "\makeatother" write$ newline$
-  "\ifx\adsurl    \undefined \def\adsurl#1{\safeHref{https://ui.adsabs.harvard.edu/abs/}{#1}{\textsf{ADS}}}\fi" write$ newline$
-  "\ifx\arxivurl  \undefined \def\arxivurl#1{\safeHref{http://arxiv.org/abs/}{#1}{\textsf{arXiv}}}\fi" write$ newline$
+  "\ifx\adsurl    \undefined \def\adsurl#1{\safeHref{https://ui.adsabs.harvard.edu/abs/}{#1}{ADS}}\fi" write$ newline$
+  "\ifx\arxivurl  \undefined \def\arxivurl#1{\safeHref{http://arxiv.org/abs/}{#1}{arXiv}}\fi" write$ newline$
   "\ifx\botherref \undefined \def\botherref#1{}\fi" write$ newline$
-  "\ifx\url       \undefined \def\url#1{\textsf{#1}}\fi" write$ newline$
+  "\ifx\url       \undefined \def\url#1{#1}\fi" write$ newline$
   "\ifx\bchapter  \undefined \def\bchapter#1{}\fi" write$ newline$
   "\ifx\bbook     \undefined \def\bbook#1{}\fi" write$ newline$
   "\ifx\bcomment  \undefined \def\bcomment#1{#1}\fi" write$ newline$

@@ -42,7 +42,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{spr-sola-addons}
-             [2019/03/01 v2.02, Springer style for SOLA journal]
+             [2020/04/29 v2.03, Springer style for SOLA journal]
 
 \newif\if@loadnatbib  \@loadnatbibtrue
 \DeclareOption{natbib}{\@loadnatbibtrue}
@@ -220,7 +220,7 @@
   \authorsize
   \leavevmode
   \gdef\surname##1{##1}%
-  \gdef\email##1{ \hbox{(\email@prefix{\sffamily \lowercase{##1}})}}%
+  \gdef\email##1{ \hbox{(\email@prefix{\lowercase{##1}})}}%
   \cnt@authors=0
   \def\@k@p##1{\advance\cnt@authors by 1}\@curauths
   \def\@k@p##1{\advance\cnt@authors by -1
@@ -240,7 +240,7 @@
 
 \newtoks\corref@authors@list
 \newtoks\email@authors@list
-\def\fmt@author@and@email#1#2{#1\\{\href{mailto:#2}{\sffamily \lowercase{#2}}}}
+\def\fmt@author@and@email#1#2{#1\\{\href{mailto:#2}{\lowercase{#2}}}}
 \def\add@xtok#1#2{\begingroup\xdef\@act{\global\noexpand#1{\the#1#2}}\@act\endgroup}
 \def\fmt@addressref@list{%
   \ifx\addrespresented\relax
@@ -611,10 +611,9 @@
 \def\labelitemiii{\textasteriskcentered} 
 \def\labelitemiv {{\footnotesize +}}
 
-\AtBeginDocument{\@ifundefined{urlstyle}{}{\urlstyle{sf}}}
+\AtBeginDocument{\@ifundefined{urlstyle}{}{\urlstyle{rm}}}
 
 \DeclareMathAlphabet      {\mathbfit}{OML}{cmm}{b}{it}
-
 
 \def\TODAY@JWL{\number\day\space\ifcase\month\or January\or February\or March\or
  April\or
@@ -629,7 +628,7 @@
 
 %% default options for hyperref
 \if@loadhyperref
-  \usepackage[pdfborder={0 0 0 },urlcolor=blue,breaklinks]{hyperref}
+  \usepackage[pdfborder={0 0 0 },colorlinks,linkcolor=black,citecolor=black,urlcolor=blue,breaklinks]{hyperref}
 \else
   \let\href\@secondoftwo
   \let\url\@firstofone
