@@ -15,17 +15,9 @@
 \def\kluclassversion{}
 \def\klujnlname{none}
 
-\def\get@CVSdate#1Id: #2,v #3 #4 #5 #6 #7${%#4}%$
-   \gdef\filedate{#4}%
-   \gdef\kluclassversion{#3}%
-}
-\def\fmt@version{\get@CVSdate$Id: solarphysics.cls,v 1.8 2011/09/20 08:38:26 lstonys Exp $}
-\fmt@version
-%
-
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{solarphysics}[\filedate\space
-    (version \kluclassversion) Springer base document class for "Solar Physics" journal]
+\ProvidesClass{solarphysics}[2020/07/20 v1.9\space
+    Springer base document class for "Solar Physics" journal]
 \newcommand\@ptsize{}
 \newcommand\@pttensize{1}
 \newif\if@restonecol
@@ -111,7 +103,7 @@
 \ProcessOptions % including options for modules
 
 
-\IfFileExists{amssymb.sty}{\RequirePackage[psamsfonts]{amssymb}%
+\IfFileExists{amssymb.sty}{\RequirePackage{amssymb}%
     \global\font\smallmsa=msam7
     \gdef\Register{$^{\mbox{\smallmsa\char114}}$~}}{}
 \IfFileExists{wasysym.sty}{\RequirePackage{wasysym}}{%

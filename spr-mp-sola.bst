@@ -1,4 +1,4 @@
-%% This is file `spr-mp-sola.bst'
+%% This is file `spr-mp-sola.bst' 
 %%
 %% Please submit bugs or your comments to latex-support@vtex.lt
 %%
@@ -30,6 +30,9 @@
 % 2014-02-13 -- removed last page from output.
 % 2018-10-11 -- escaping "#" in url and adsurl fields.
 % ...        -- newer changes can be seen: https://github.com/vtex-soft/texsupport.springer-sola
+% 
+% Version: 2.01 
+% (with author-year citation support)
 
 ENTRY
   { address
@@ -2535,7 +2538,7 @@ SORT
 
 FUNCTION {write.preambule}
 { "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
-  "% BibTex style file: spr-mp-sola.bst (nameyear), 2020-04-01" write$ newline$
+  "% BibTex style file: spr-mp-sola.bst, v2.01, 2020-07-20" write$ newline$
   "\ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi" write$ newline$
   "\ifx\binits    \undefined \def\binits#1{#1}\fi" write$ newline$
   "\ifx\bauthor   \undefined \def\bauthor#1{#1}\fi" write$ newline$
