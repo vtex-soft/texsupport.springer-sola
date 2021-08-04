@@ -42,7 +42,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{spr-sola-addons}
-             [2020/04/29 v2.03, Springer style for SOLA journal]
+             [2021/08/04 v2.04, Springer style for SOLA journal]
 
 \newif\if@loadnatbib  \@loadnatbibtrue
 \DeclareOption{natbib}{\@loadnatbibtrue}
@@ -820,4 +820,73 @@
     \global\inarticlefalse
    }
 
+
+   
+\newcounter{heading}
+\def\theheading{\@arabic\c@heading}
+\def\headingmark#1{}
+\def\toclevel@heading{1}
+\def\fmt@bookmark@heading#1{#1}
+\def\smart@par{\ifhmode\par\fi}   
+\def\heading@size{\bfseries}
+\def\heading@afterskip{-0.5em}
+\newcommand\heading{\@startsection{heading}{1}{\z@}%
+                                   {\medskipamount}%
+                                   {\heading@afterskip}%
+                                   {\heading@size}}
+
+
+\newcounter{subheading}
+\@addtoreset{subheading}{heading}
+\def\thesubheading{\theheading.\@arabic\c@subheading}
+\def\subheadingmark#1{}
+\def\toclevel@subheading{1}
+\def\fmt@bookmark@subheading#1{#1}
+\def\subsection@font{\fontsize{10}{12.5}\bfseries\mathversion{bold}\raggedright\nohyphen}   
+\newcommand\subheading{\@startsection{subheading}{2}{\z@}%
+                                   {\medskipamount}%
+                                   {\heading@afterskip}%
+                                   {\heading@size}}
+
+ 
+\let\conflict@heading\heading
+\newenvironment{@conflict}[1][\conflictname]{\smart@par\footnotesize\conflict@heading*{#1}}{\par}
+
+\def\ethicsname{Declarations}%
+\newenvironment{ethics}[1][\ethicsname]{%
+    % 1st level in bookmarks and toc though subsection in style
+    \renewcommand\heading{\@startsection {heading}{1}{\z@}%
+                              {-\medskipamount}%
+                              {\medskipamount}%
+                              {\subsection@font\raggedright\nohyphen}}%
+    \let\conflict@heading\subheading
+    \let\conflict\@conflict
+    \let\endconflict\end@conflict
+    \smart@par\footnotesize\heading*{#1}%
+    }%
+    {\par}
+
+\def\conflictname{Conflict of interest}
+\newenvironment{conflict}[1][\conflictname]{\begin{@conflict}[#1]}{\end{@conflict}}
+
+\def\authorcontributionname{Author Contribution}
+\newenvironment{authorcontribution}[1][\authorcontributionname]{\begin{@conflict}[#1]}{\end{@conflict}}
+
+\def\fundinginformationname{Funding}
+\newenvironment{fundinginformation}[1][\fundinginformationname]{\begin{@conflict}[#1]}{\end{@conflict}}
+
+\def\dataavailabilityname{Data Availability}
+\newenvironment{dataavailability}[1][\dataavailabilityname]{\begin{@conflict}[#1]}{\end{@conflict}}
+
+\def\materialsavailabilityname{Materials Availability}
+\newenvironment{materialsavailability}[1][\materialsavailabilityname]{\begin{@conflict}[#1]}{\end{@conflict}}
+
+\def\codeavailabilityname{Code Availability}
+\newenvironment{codeavailability}[1][\codeavailabilityname]{\begin{@conflict}[#1]}{\end{@conflict}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ARTICLE COMMENTS
+
+\def\commentsname{Comments}
+\newenvironment{comments}[1][\commentsname]{\section*{#1}\footnotesize}{\par}
+   
 \endinput
