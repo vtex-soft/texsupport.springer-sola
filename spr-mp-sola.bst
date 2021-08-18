@@ -1600,11 +1600,10 @@ FUNCTION {patent}
     'skip$
     {format.authors stupid.colon}
   if$
+  format.date output
   format.title "title" output.check
   add.period$
   patent.number output
-  insert.comma
-  formatpatent.date output
   end.element
 }
 
@@ -2538,7 +2537,7 @@ SORT
 
 FUNCTION {write.preambule}
 { "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
-  "% BibTex style file: spr-mp-sola.bst, v2.02, 2021-05-31" write$ newline$
+  "% BibTex style file: spr-mp-sola.bst, v2.03, 2021-08-18" write$ newline$
   "\ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi" write$ newline$
   "\ifx\binits    \undefined \def\binits#1{#1}\fi" write$ newline$
   "\ifx\bauthor   \undefined \def\bauthor#1{#1}\fi" write$ newline$
