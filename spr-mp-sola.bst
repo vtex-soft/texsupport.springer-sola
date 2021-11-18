@@ -55,6 +55,7 @@ ENTRY
     publisher
     school
     series
+    sortkey
     title
     type
     volume
@@ -2425,47 +2426,54 @@ FUNCTION {editor.organization.sort}
   if$
 }
 
-FUNCTION {presort}
-{ calc.label
-  sort.label sortify
-  "    "
-  *
-  type$ "book" =
-  type$ "inbook" =
-  or
-     {author empty$
-       'editor.organization.sort
-      'author.organization.sort
-     if$
-    }
-    { type$ "proceedings" =
-      type$ "incollection" =
-       or
-        {author empty$
-            'editor.organization.sort
+FUNCTION {presort}{ 
+  sortkey empty$
+    {
+        calc.label
+        sort.label sortify
+        "    "
+        *
+        type$ "book" =
+        type$ "inbook" =
+        or
+           {author empty$
+             'editor.organization.sort
             'author.organization.sort
+           if$
+          }
+          { type$ "proceedings" =
+            type$ "incollection" =
+             or
+              {author empty$
+                  'editor.organization.sort
+                  'author.organization.sort
+              if$
+              }
+              { type$ "manual" =
+                  'author.organization.sort
+                  'author.sort
+                if$
+              }
+            if$
+          }
         if$
-        }
-        { type$ "manual" =
-            'author.organization.sort
-            'author.sort
-          if$
-        }
-      if$
+        "    "
+        *
+        year field.or.null sortify
+        *
+        "    "
+        *
+        title field.or.null
+        sort.format.title
+        *
+        #1 entry.max$ substring$ 'sort.label :=
+        sort.label *
+        #1 entry.max$ substring$ 'sort.key$ :=
+    }{
+        sortkey 'sort.label :=
+        sortkey 'sort.key$ :=
     }
   if$
-  "    "
-  *
-  year field.or.null sortify
-  *
-  "    "
-  *
-  title field.or.null
-  sort.format.title
-  *
-  #1 entry.max$ substring$ 'sort.label :=
-  sort.label *
-  #1 entry.max$ substring$ 'sort.key$ :=
 }
 
 
@@ -2520,15 +2528,17 @@ FUNCTION {bib.sort.order}
     {"aaa"}
     {"unsort" is.in.list
       {"bb"}
-      {"alpha" is.in.list
-        {sort.key$}
-        {sort.label}
+      {
+        "alpha" is.in.list
+          {sort.key$}
+          {sort.label}
         if$  
-       }
+      }
      if$
     }
     if$
   'sort.key$ :=  
+%  sort.key$ top$
 }
 
 ITERATE {bib.sort.order}
@@ -2537,7 +2547,7 @@ SORT
 
 FUNCTION {write.preambule}
 { "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
-  "% BibTex style file: spr-mp-sola.bst, v2.03, 2021-08-18" write$ newline$
+  "% BibTex style file: spr-mp-sola.bst, v2.04, 2021-11-17" write$ newline$
   "\ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi" write$ newline$
   "\ifx\binits    \undefined \def\binits#1{#1}\fi" write$ newline$
   "\ifx\bauthor   \undefined \def\bauthor#1{#1}\fi" write$ newline$
