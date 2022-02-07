@@ -42,7 +42,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{spr-sola-addons}
-             [2021/08/04 v2.04, Springer style for SOLA journal]
+             [2022/02/07 v2.05, Springer style for SOLA journal]
 
 \newif\if@loadnatbib  \@loadnatbibtrue
 \DeclareOption{natbib}{\@loadnatbibtrue}
@@ -195,7 +195,7 @@
 
 \def\authorsize{\normalsize\bfseries\raggedrightmargin{42mm}\let\sep=\authorsep}
 \protected\def\authorsep{~{\mathversion{bold}\ensuremath{\cdot}}\ }
-
+  
 \newcounter{affref}
 \def\theaffref{\arabic{affref}}
 %% format footnote mark in author block
@@ -216,6 +216,8 @@
 \def\lnm#1{#1}%
 \let\sep\relax
 
+\def\afterauthorskip{10pt}
+
 \def\@formatauthors{\begingroup
   \authorsize
   \leavevmode
@@ -235,7 +237,9 @@
     \fi
     }\@curauths
    \vskip \afterauthorskip
-  \printaddresses 
+  \@date
+  \@copyright
+  \printaddresses
   \endgroup}
 
 \newtoks\corref@authors@list
@@ -258,6 +262,7 @@
   \fi
   }
 
+\let\do@item\@gobbletwo
 \newcommand\@fmt@author[2][]{%
   \bgroup
     \let\inits\relax
@@ -270,9 +275,9 @@
     \ifx\@author@email\@empty
     \else
       \if@authorcorref
-        \add@xtok\corref@authors@list{\noexpand\item[\noexpand\@@@Letter]\noexpand\fmt@author@and@email{#2}{\@author@email}}%
+        \add@xtok\corref@authors@list{\noexpand\do@item{\noexpand\@@@Letter}{\noexpand\fmt@author@and@email{#2}{\@author@email}}}%
       \else
-        \add@xtok\email@authors@list{\noexpand\item[] \noexpand\fmt@author@and@email{#2}{\@author@email}}%
+        \add@xtok\email@authors@list{\noexpand\do@item{}{\noexpand\fmt@author@and@email{#2}{\@author@email}}}%
       \fi
     \fi
     \def\inits##1{\ignorespaces}%
@@ -302,7 +307,7 @@
     \else
       \def\item@mark{\noexpand\make@address@mark{affref@\@address@id}}%
     \fi
-    \add@xtok\adresses@list{\noexpand\item[\item@mark]\noexpand\fmt@address{#2}}%
+    \add@xtok\adresses@list{\noexpand\do@item{\item@mark}{\noexpand\fmt@address{#2}}}%
   \egroup
   \ignorespaces
   }
@@ -311,17 +316,21 @@
 \def\casteadlistsetup#1{#1}
 \def\castaddresseslistsetup#1{#1}
 
+\def\@affil@makefntext#1{%
+  \leftskip=\labelwidth
+  \footnote@skip #1}
+
 \def\@casteadlistsetup{%
-  \labelwidth15pt
-  \itemindent\labelwidth
-  \parindent\itemindent
-  \itemsep5pt
+  \labelwidth=15pt
+  \def\footnote@skip{\addvspace{8pt}\gdef\footnote@skip{}}
+  \let\@footnotetext\orig@@footnotetext
+  \let\@makefntext\@affil@makefntext
   }
 
 \def\@casteadlisthook{%
-  \def\makelabel##1{\hfil ##1}%
+  \def\makelabel##1{\hbox to \z@{\hss\hbox to \labelwidth{##1\hfil}}}%
   }
-
+  
 \def\castead{%
   \bgroup
     \let\orcid\@gobble
@@ -338,12 +347,11 @@
     \def\inits##1{##1\ignorespaces}%
     \make@trivlist{%
       \csname castead@skip\endcsname
-      \trivlist
-        \@casteadlisthook
-        \@casteadlistsetup
-        \the\corref@authors@list
-        \the\email@authors@list
-      \endtrivlist
+      \let\do@item\affil@footnote
+      \@casteadlisthook
+      \@casteadlistsetup
+      \the\corref@authors@list
+      \the\email@authors@list
       \global\email@authors@list={}%
       \global\corref@authors@list={}%
       }%
@@ -353,21 +361,27 @@
 %%%% castaddresses
 \def\castaddresses@skip{\addvspace{8\p@}}
 \def\@castaddresseslistsetup{%
-  \topsep0pt
-  \parskip0pt
-  \partopsep0pt
-  \listparindent0pt
-  \itemindent0pt
-  \labelsep0pt
-  \leftmargin15pt
-  \labelwidth\leftmargin
-  \itemsep5pt
+  \let\@footnotetext\orig@@footnotetext
+  \let\@makefntext\@affil@makefntext
+  \setlength\footnotesep   {15\p@}% 
+  \def\footnote@skip{\castaddresses@skip\gdef\footnote@skip{}}
   }
 
 \def\@castaddresseslisthook{%
-  \def\makelabel##1{\rlap{\addresslbl@fmt{##1}}}% 
+  \def\makelabel##1{\hbox to \z@{\hss\hbox to \labelwidth{\addresslbl@fmt{##1}\hfil}}}%
   }
 
+\def\footnote@skip{}
+\def\affil@footnote#1#2{%
+  \vskip 0pt 
+  \def\@tmp@arg{#1}%
+  \ifx\@tmp@arg\empty
+    \footnotetext{#2}%
+  \else
+    \footnotetext{\makelabel{#1}#2}%
+  \fi
+}  
+  
 \def\castaddresses{%
   \bgroup
     \let\make@list\@firstofone
@@ -377,11 +391,11 @@
       \let\make@list\@gobble
     \fi
     \make@list{%
-      \castaddresses@skip
-      \list{}{\@castaddresseslistsetup}%
+        \let\do@item\affil@footnote
+        \def\footnote@skip{\vskip10\z@ \gdef\footnote@skip{}}
         \@castaddresseslisthook
+        \@castaddresseslistsetup
         \the\adresses@list
-      \endlist
       }
   \egroup
   }
@@ -393,20 +407,17 @@
 \global\let\orig@footnoterule\footnoterule
 \def\fminsert@size{\footnotesize\normalfont\raggedrightmargin{5mm}}
 \def\footnoterule@width{108\p@}
+
 \long\def\printaddresses{%
-  \gdef\footnoterule{\global\let\footnoterule\orig@footnoterule}%
-  \insert\footins{%
-     \fminsert@size
-     \setlength\smallskipamount{5\p@}%
-     \setlength\medskipamount{10\p@}%
-     \vskip2.7\p@
-     \hrule width\footnoterule@width
-     \vskip4.2pt
-        \castead
-        \castaddresses
-    \par
-    }%
+  \bgroup
+    \fminsert@size
+    \setlength\smallskipamount{5\p@}%
+    \setlength\medskipamount{10\p@}%
+    \castead
+    \castaddresses
+  \egroup
   }
+  
 
 % Institute
 \def\institutesize{\footnotesize\normalfont}
@@ -429,8 +440,8 @@
 \def\acknowledgement{\def\acknowledgementsname{Acknowledgement}\@acknowledgement}
 \def\acknowledgments{\def\acknowledgementsname{Acknowledgments}\@acknowledgement}
 \def\acknowledgements{\def\acknowledgementsname{Acknowledgements}\@acknowledgement}
-\newenvironment{ack}[1][Acknowledgment]{\footnotesize\paragraph*{#1}}{}
-\newenvironment{acks}[1][Acknowledgments]{\footnotesize\paragraph*{#1}}{}
+\newenvironment{ack}[1][Acknowledgement]{\footnotesize\paragraph*{#1}}{}
+\newenvironment{acks}[1][Acknowledgements]{\footnotesize\paragraph*{#1}}{}
 
 
 % Running head'ai
@@ -543,7 +554,7 @@
 \get@env@toks{abstract}{\document@abstract}
 
 \gdef\@abstract{%
-  \message{\abstractname}%
+  \unskip
   \vskip\preabstractskip
   \noindent
   \abstractsize \noindent
@@ -561,8 +572,9 @@
 \let\copyright@size\footnotesize
 
 \def\@maketitle{%
-   \@arttype \@title \@subtitle \@authorsandinstitutes \@date  \@copyright
-   \@abstract \@keywords \@abbreviations \@classification
+   \@arttype \@title \@subtitle \@authorsandinstitutes 
+   \@abstract 
+   \@keywords \@abbreviations \@classification
    \@nomenclature \@translation \@dedication \@motto}
 \sprcopyright
 
@@ -626,6 +638,7 @@
      SOLA\csname SOLAID\endcsname: \jobname.tex; \TODAY@JWL;~\timenow;~p.~\thepage}}}}%
    \fi}
 
+\let\orig@@footnotetext\@footnotetext
 %% default options for hyperref
 \if@loadhyperref
   \usepackage[pdfborder={0 0 0 },colorlinks,linkcolor=black,citecolor=black,urlcolor=blue,breaklinks]{hyperref}
