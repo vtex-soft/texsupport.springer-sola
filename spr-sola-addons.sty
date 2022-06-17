@@ -42,7 +42,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{spr-sola-addons}
-             [2022/02/07 v2.05, Springer style for SOLA journal]
+             [2022/06/17 v2.06, Springer style for SOLA journal]
 
 \newif\if@loadnatbib  \@loadnatbibtrue
 \DeclareOption{natbib}{\@loadnatbibtrue}
@@ -275,9 +275,9 @@
     \ifx\@author@email\@empty
     \else
       \if@authorcorref
-        \add@xtok\corref@authors@list{\noexpand\do@item{\noexpand\@@@Letter}{\noexpand\fmt@author@and@email{#2}{\@author@email}}}%
+        \add@xtok\corref@authors@list{\noexpand\do@item{\noexpand\@@@Letter}{\noexpand\fmt@author@and@email{\unexpanded{#2}}{\unexpanded\expandafter{\@author@email}}}}%
       \else
-        \add@xtok\email@authors@list{\noexpand\do@item{}{\noexpand\fmt@author@and@email{#2}{\@author@email}}}%
+        \add@xtok\email@authors@list{\noexpand\do@item{}{\noexpand\fmt@author@and@email{\unexpanded{#2}}{\unexpanded\expandafter{\@author@email}}}}%
       \fi
     \fi
     \def\inits##1{\ignorespaces}%
@@ -307,7 +307,7 @@
     \else
       \def\item@mark{\noexpand\make@address@mark{affref@\@address@id}}%
     \fi
-    \add@xtok\adresses@list{\noexpand\do@item{\item@mark}{\noexpand\fmt@address{#2}}}%
+    \add@xtok\adresses@list{\noexpand\do@item{\item@mark}{\noexpand\fmt@address{\unexpanded{#2}}}}%
   \egroup
   \ignorespaces
   }
