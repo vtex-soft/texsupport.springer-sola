@@ -42,7 +42,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{spr-sola-addons}
-             [2022/06/17 v2.06, Springer style for SOLA journal]
+             [2022/09/02 v2.07, Springer style for SOLA journal]
 
 \newif\if@loadnatbib  \@loadnatbibtrue
 \DeclareOption{natbib}{\@loadnatbibtrue}
@@ -790,9 +790,12 @@
 \def\endbibitem{%
   \@ifundefined{current@biblabel}{}{\texttt{[\expandafter\detokenize\expandafter{\current@biblabel}]}}}
 
-\def\label#1{\ilabel{\thearticle #1}}%
-\def\ref#1{\iref{\thearticle #1}}%
-\def\pageref#1{\ipageref{\thearticle #1}}%
+\if@loadhyperref
+\else
+  \def\label#1{\ilabel{\thearticle #1}}%
+  \def\ref#1{\iref{\thearticle #1}}%
+  \def\pageref#1{\ipageref{\thearticle #1}}%
+\fi
 
 \renewenvironment{article}{%
   \def\@definecounter##1{\art@intdefinecounter{##1}%
