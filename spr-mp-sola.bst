@@ -2313,8 +2313,36 @@ FUNCTION {calc.label}
   if$
 }
 
+FUNCTION {sort.space.after.dot}
+{'t :=
+  "" 'j :=
+  "" 'l :=
+%"orig=" t * top$
+  { t empty$ not }
+  {   
+
+    t #1 #1 substring$ 'j :=
+      l  j * 'l := 
+
+    j "." = 
+      { 
+        t #2 #1 substring$ " " =
+          'skip$
+          {l  " " * 'l := } 
+        if$  
+      } 
+      'skip$
+    if$
+
+      t #2 global.max$ substring$ 't :=
+  }
+  while$
+  l 
+% "new="  l * top$ 
+}
+
 FUNCTION {sort.format.names}
-{ 's :=
+{ sort.space.after.dot 's :=
   #1 'nameptr :=
   ""
   s num.names$ 'numnames :=
@@ -2503,7 +2531,7 @@ FUNCTION {forward.pass}
     }
   if$
   number.label #1 + 'number.label :=
-%  cite$ "  " * extra.label * " label=" * label * top$
+  %cite$ "  " * extra.label * " label=" * label * top$
 }
 
 FUNCTION {reverse.pass}
@@ -2523,7 +2551,6 @@ REVERSE {reverse.pass}
 
 FUNCTION {bib.sort.order}
 { sort.label  'sort.key$ :=
-
   "settings" type$ =
     {"aaa"}
     {"unsort" is.in.list
@@ -2538,7 +2565,7 @@ FUNCTION {bib.sort.order}
     }
     if$
   'sort.key$ :=  
-%  sort.key$ top$
+  % sort.key$ top$
 }
 
 ITERATE {bib.sort.order}
@@ -2547,7 +2574,7 @@ SORT
 
 FUNCTION {write.preambule}
 { "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
-  "% BibTex style file: spr-mp-sola.bst, v2.04, 2021-11-17" write$ newline$
+  "% BibTex style file: spr-mp-sola.bst, v2.05, 2022-11-16" write$ newline$
   "\ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi" write$ newline$
   "\ifx\binits    \undefined \def\binits#1{#1}\fi" write$ newline$
   "\ifx\bauthor   \undefined \def\bauthor#1{#1}\fi" write$ newline$
