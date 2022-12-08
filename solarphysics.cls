@@ -16,7 +16,7 @@
 \def\klujnlname{none}
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{solarphysics}[2020/07/20 v1.9\space
+\ProvidesClass{solarphysics}[2022/12/08 v1.9a\space
     Springer base document class for "Solar Physics" journal]
 \newcommand\@ptsize{}
 \newcommand\@pttensize{1}
@@ -176,12 +176,8 @@
   THIRTEEN\or FOURTEEN\or FIFTEEN\or SIXTEEN\or SEVENTEEN\or
   EIGHTEEN\or NINETEEN\or TWENTY\fi}
 
-\def\ifempty#1#2#3{\def\inner{#1}\ifx\inner\empty
+\def\spr@ifempty#1#2#3{\def\inner{#1}\ifx\inner\empty
    #2\else #3\fi }
-\def\ifdef#1{\edef\tempa{\expandafter\@gobble\string #1}%
-   \expandafter\expandafter\expandafter\ifx\expandafter\csname
-   \tempa \endcsname\relax
-   \let\next\nosw \else \let\next=\yessw \fi \next}
 \def\nosw{\iffalse}
 \def\yessw{\iftrue}
 \newif\ifklaar
@@ -209,13 +205,13 @@
 \def\@genaccent#1#2#3#4#5{%
    \leavevmode\setbox0=\hbox{#3}%
    \vbox{\offinterlineskip
-   \ifempty{#1}{}{%\else
+   \spr@ifempty{#1}{}{%\else
     \hbox to\wd0{\hss\genacc \char#1\hss}}%
-    \ifempty{#4}{\kern -.8ex}{\kern #4}%
+    \spr@ifempty{#4}{\kern -.8ex}{\kern #4}%
    \vbox to\ht0{\copy0\vss}%
    \vtop{\null\vbox to\dp0{\vss}%
-   \ifempty{#2}{}{%\else
-     \ifempty{#5}{\kern .2ex}{\kern#5}%
+   \spr@ifempty{#2}{}{%\else
+     \spr@ifempty{#5}{\kern .2ex}{\kern#5}%
      \hbox to \wd0{\hss \genacc\char #2\hss}}%
     }}}
 \renewcommand\.[1]{\genaccent{95}{}{#1}{}{}}
@@ -231,18 +227,18 @@
 \def\@cbone[#1]#2{{\setbox0\hbox{#2}%
      \ifdim\wd0 >#1 \parbox[t]{#1}{#2}\else #2\fi}}
 \def\nbox#1#2#3#4#5#6{\begingroup\setbox0\hbox{0}%
-    \ifempty{#1}{\hfil #2}{\hbox to #1\wd0{\hfil #2}}%
-    \ifempty{#3}{\hbox{#4}}{\hbox to #3\wd0{\hfil #4\hfil }}%
-    \ifempty{#5}{#6 \hfil}{\hbox to #5\wd0{#6\hfil }}%
+    \spr@ifempty{#1}{\hfil #2}{\hbox to #1\wd0{\hfil #2}}%
+    \spr@ifempty{#3}{\hbox{#4}}{\hbox to #3\wd0{\hfil #4\hfil }}%
+    \spr@ifempty{#5}{#6 \hfil}{\hbox to #5\wd0{#6\hfil }}%
     \endgroup}
 \newif\ifkern@mathmode \kern@mathmodefalse
 \def\charkerncharspace{\kern 0.5ex}
 \def\charkernwordspace{\kern 0.5em\penalty 10}
 \let\charkerncommand\uppercase
-\def\@kap@tfor#1:=#2\do#3{\ifempty{#1}{}{%
+\def\@kap@tfor#1:=#2\do#3{\spr@ifempty{#1}{}{%
   \@tforloop#2\@nil\@nil\@@#1{#3}}}
 \def\charkern#1{%
-    \ifempty{#1}{}{%else
+    \spr@ifempty{#1}{}{%else
   \begingroup
   \def\test##1##2!!!!{\def\@tempa{##2}}\test#1!!!!%
   \ifx\@tempa\empty \edef\@@kc{#1}\else \def\@@kc{#1}\fi
