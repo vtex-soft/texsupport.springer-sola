@@ -16,7 +16,7 @@
 \def\klujnlname{none}
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{solarphysics}[2022/12/08 v1.9a\space
+\ProvidesClass{solarphysics}[2023/06/22 v2.00,
     Springer base document class for "Solar Physics" journal]
 \newcommand\@ptsize{}
 \newcommand\@pttensize{1}
@@ -102,12 +102,6 @@
 
 \ProcessOptions % including options for modules
 
-
-\IfFileExists{amssymb.sty}{\RequirePackage{amssymb}%
-    \global\font\smallmsa=msam7
-    \gdef\Register{$^{\mbox{\smallmsa\char114}}$~}}{}
-\IfFileExists{wasysym.sty}{\RequirePackage{wasysym}}{%
-  \IfFileExists{wasysym.tex}{\input{wasysym}}{}}
 \def\I{{\bf I}}
 \newcommand\iduaal{\overline{\I}}
 \let\forces\Vdash
