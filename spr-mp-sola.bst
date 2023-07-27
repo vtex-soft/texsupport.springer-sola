@@ -2341,6 +2341,7 @@ FUNCTION {sort.space.after.dot}
 % "new="  l * top$ 
 }
 
+
 FUNCTION {sort.format.names}
 { sort.space.after.dot 's :=
   #1 'nameptr :=
@@ -2357,7 +2358,12 @@ FUNCTION {sort.format.names}
         }
         'skip$
       if$
-      s nameptr "{vv{ } }{ll{ }}{  f{ }}{  jj{ }}" format.name$ 't :=
+      "" 't :=
+    	s nameptr "{vv{ } }{ll{ }}" 	format.name$           'v := 
+      s nameptr "{f{ }}"    format.name$ #1 #1 substring$   'f := 
+      s nameptr "{jj{ }}" 	format.name$ 'j := 
+      v "  " * f * j *   't :=
+    	
       nameptr numnames = 
       t "others" = 
       and
@@ -2454,6 +2460,7 @@ FUNCTION {editor.organization.sort}
   if$
 }
 
+
 FUNCTION {presort}{ 
   sortkey empty$
     {
@@ -2487,7 +2494,7 @@ FUNCTION {presort}{
         if$
         "    "
         *
-        year field.or.null sortify
+        year extra.label * field.or.null sortify
         *
         "    "
         *
@@ -2502,6 +2509,7 @@ FUNCTION {presort}{
         sortkey 'sort.key$ :=
     }
   if$
+  % sort.key$ top$  
 }
 
 
@@ -2509,6 +2517,32 @@ ITERATE {presort}
 
 SORT
 
+
+
+FUNCTION {bib.sort.order}
+{ sort.label  'sort.key$ :=
+  "settings" type$ =
+    {"aaa"}
+    {"unsort" is.in.list
+      {"bb"}
+      {
+        "alpha" is.in.list
+          {sort.key$}
+          {sort.label}
+        if$  
+      }
+     if$
+    }
+    if$
+  'sort.key$ :=  
+  % sort.key$   " ref=" * cite$ *  top$
+}
+
+ITERATE {bib.sort.order}
+
+SORT
+
+%%%%%%%%%%%%%%% prepare extra label 
 INTEGERS { longest.label.width last.extra.num number.label }
 
 FUNCTION {initialize.longest.label}
@@ -2531,7 +2565,7 @@ FUNCTION {forward.pass}
     }
   if$
   number.label #1 + 'number.label :=
-  %cite$ "  " * extra.label * " label=" * label * top$
+  % "label=" label * extra.label * "  " * cite$ *  top$
 }
 
 FUNCTION {reverse.pass}
@@ -2541,6 +2575,7 @@ FUNCTION {reverse.pass}
   if$
   extra.label 'j :=
   label extra.label * 'label :=
+  % "label=" label * "  " * " ref=" * cite$ *  top$
 }
 
 EXECUTE {initialize.longest.label}
@@ -2548,33 +2583,11 @@ EXECUTE {initialize.longest.label}
 ITERATE {forward.pass}
 
 REVERSE {reverse.pass}
-
-FUNCTION {bib.sort.order}
-{ sort.label  'sort.key$ :=
-  "settings" type$ =
-    {"aaa"}
-    {"unsort" is.in.list
-      {"bb"}
-      {
-        "alpha" is.in.list
-          {sort.key$}
-          {sort.label}
-        if$  
-      }
-     if$
-    }
-    if$
-  'sort.key$ :=  
-  % sort.key$ top$
-}
-
-ITERATE {bib.sort.order}
-
-SORT
+%%%%%%%%%%%%%%%%%%%%%
 
 FUNCTION {write.preambule}
 { "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
-  "% BibTex style file: spr-mp-sola.bst, v2.05, 2022-11-16" write$ newline$
+  "% BibTex style file: spr-mp-sola.bst, v2.06, 2023-07-27" write$ newline$
   "\ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi" write$ newline$
   "\ifx\binits    \undefined \def\binits#1{#1}\fi" write$ newline$
   "\ifx\bauthor   \undefined \def\bauthor#1{#1}\fi" write$ newline$
@@ -2638,7 +2651,4 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
-
-
-
 
