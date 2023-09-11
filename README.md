@@ -10,7 +10,7 @@ The following files are given in the repository (or directly in `.zip` archive):
 ### Sample
 
 -   `sola_example_6.tex` - sample paper. It contains useful information about 
-    typesetting article with `solarphysics` class file.
+    typesetting article with `spr-sola` class file.
 -   `sola_example_6.pdf` - output after LaTeX compilation:
 
         latex sola_example_6.tex
@@ -31,14 +31,10 @@ The following files are given in the repository (or directly in `.zip` archive):
 ### Extra information
 
 -   `sola_keyword_list.txt`
--   `sola_example_labels.tex`
--   `sola_instructions_for_authors.txt`
 
 ### Formatting files  
 
--   `solarphysics.cls`
--   `spr-sola-addons.sty`
--   `spr-mp-sola.bst`
+-   `spr-sola.cls`
 
 ### Template
 
@@ -47,22 +43,21 @@ The following files are given in the repository (or directly in `.zip` archive):
 ## Setup
 
 -   Clone the repository or download the `.zip` archive.
--   Install LaTeX style files (`solarphysics.cls`, `spr-sola-addons.sty`, `spr-mp-sola.bst`) 
+-   Install LaTeX style files (`spr-sola.cls`, `spr-mp-sola.bst`) 
     in your TeX system or place them in the same directory where your `*.tex` file is.
 -   Read the instructions (`sola_example_6.pdf`) for the preparation of your LaTeX document.
 -   Use the template file `template.tex` to prepare your manuscript.
 
 ## Notifications
 
--   `spr-sola-addons` has option "linksfromyear"
+-   `spr-sola` has option "linksfromyear"
     and when `hyperref` is loaded it makes a hyperlink only 
     from year component of the cite command. This solves 
     the problem of overfull boxes when dvips driver is used.
-    It might not work with an older natbib packages.
     Citation style should be an author-year, and the hyperref 
     should be loaded somewhere in preamble.
     Use "nolinksfromyear" if you want to disable it.
--   `spr-sola-addons` loads a `natbib` package. 
+-   `spr-sola` loads a `natbib` package. 
     Use "nonatbib" option if you don't want to load it.
 -   Option "showbiblabels" outputs `\bibitem` label on every 
     bibitem end (command `\endbibitem`). This option should be used 
