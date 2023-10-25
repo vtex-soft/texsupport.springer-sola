@@ -65,6 +65,7 @@ ENTRY
     options
     adsurl
     arxiv
+    urlnote
   }
   {}
    { label extra.label sort.label short.list }
@@ -1179,11 +1180,16 @@ FUNCTION {format.url}
 { url empty$
     { "" }
     { 	
-      #0 bother =
-        {"\url{"}
-        {"\burl{"}
-      if$
-      url escape.comment.numbersign * "}" * 
+     "\burl{" url escape.comment.numbersign * "}" * 
+    }	
+  if$
+}
+
+FUNCTION {format.urlnote}
+{ urlnote empty$
+    { "" }
+    { 	
+      urlnote "bcomment" make.tag 
     }	
   if$
 }
@@ -1402,7 +1408,7 @@ FUNCTION {format.chapter.and.note}
     
 }
 
-FUNCTION {item.pabaiga}
+FUNCTION {item.end}
 {
   new.sentence
   type$ "unpublished" =
@@ -1436,6 +1442,7 @@ FUNCTION {item.pabaiga}
   format.arxiv  output
   new.sentence
   format.url output
+  format.urlnote output
   fin.entry
 }
 FUNCTION {insert.element}
@@ -1477,7 +1484,7 @@ FUNCTION {insert.element}
 }
 FUNCTION {end.element}
 { "\end" 'element :=
-  item.pabaiga
+  item.end
   insert.element
   "\endbibitem" write$ newline$
 }
@@ -1703,7 +1710,7 @@ FUNCTION {misc}
     {format.authors stupid.colon}
   if$
   format.date  output
-  format.title "btitle" make.tag "title" output.check
+  format.title "title" output.check
   new.sentence
   insert.comma
   format.pub.address
@@ -2587,7 +2594,7 @@ REVERSE {reverse.pass}
 
 FUNCTION {write.preambule}
 { "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
-  "% BibTex style file: spr-mp-sola.bst, v2.06, 2023-07-27" write$ newline$
+  "% BibTex style file: spr-mp-sola.bst, v2.07, 2023-10-25" write$ newline$
   "\ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi" write$ newline$
   "\ifx\binits    \undefined \def\binits#1{#1}\fi" write$ newline$
   "\ifx\bauthor   \undefined \def\bauthor#1{#1}\fi" write$ newline$
@@ -2598,7 +2605,7 @@ FUNCTION {write.preambule}
   "\ifx\bissue    \undefined \def\bissue#1{#1}\fi" write$ newline$
   "\ifx\bfpage    \undefined \def\bfpage#1{#1}\fi" write$ newline$
   "\ifx\blpage    \undefined \def\blpage #1{#1}\fi" write$ newline$
-  "\ifx\burl      \undefined \def\burl#1{#1}\fi" write$ newline$
+  "\ifx\burl      \undefined \def\burl#1{\href{#1}{\textsf{URL}}}\fi" write$ newline$
   "\ifx\href      \undefined \def\href#1#2{#2}\fi" write$ newline$
   "\ifx\betal     \undefined \def\betal{et al.}\fi" write$ newline$
   "\ifx\bctitle   \undefined \def\bctitle#1{#1}\fi" write$ newline$
