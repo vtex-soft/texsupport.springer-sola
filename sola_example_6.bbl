@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{13}
 % BibTex style file: spr-mp-sola.bst, v2.07, 2023-10-25
 \ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi
 \ifx\binits    \undefined \def\binits#1{#1}\fi
@@ -108,6 +108,21 @@ In: \beditor{\bsnm{{Ferriz-Mas}}, \binits{A.}},
 \bpublisher{Geophy. Mon. Ser. 111, AGU},
 \blocation{Washington, D.C.}.
 \end{bbook}
+\endbibitem
+
+\bibitem[\protect\citeauthoryear{{Dupont}, {Schmidt}, and
+  {Koutny}}{2007}]{Dupont07}
+\begin{barticle}
+\bauthor{\bsnm{{Dupont}}, \binits{J.-C.}},
+\bauthor{\bsnm{{Schmidt}}, \binits{F.}},
+\bauthor{\bsnm{{Koutny}}, \binits{P.}}:
+\byear{2007},
+\batitle{{An example of reference with BibTeX}}.
+\bjtitle{\solphys}
+\bvolume{323},
+\bfpage{965}.
+\arxivurl{1011.4291}.
+\end{barticle}
 \endbibitem
 
 \bibitem[\protect\citeauthoryear{{Elsasser}}{1956}]{Elsasser56}
