@@ -1,7 +1,7 @@
 %% based on old style solarphysics.cls
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{spr-sola}[2023/08/16 v2.00,
+\ProvidesClass{spr-sola}[2024/05/23 v2.01,
     Springer base document class for "Solar Physics" journal]
 \newcommand\@ptsize{1}
 \newcommand\@pttensize{1}
@@ -1543,7 +1543,7 @@
   \leftskip\z@skip
   \parindent\z@\nohyphen}
 
-\def\titleflushstyle{\raggedrightmargin{10mm}}
+\def\titleflushstyle{\raggedrightmargin{6mm}}
 \def\openingflushstyle{\vglue-\topskip\hrule \@height 1\p@ \vskip40\p@}
 \def\titlefont{\fontsize{13}{15}\selectfont\bfseries\mathversion{bold}}
 
@@ -1551,9 +1551,57 @@
 \let\@orcid\relax
 \def\orcid@base{http://orcid.org/}
 \protected\def\orcid#1{\gdef\@orcid{#1}}
-\IfFileExists{orcid.eps}
-    {\def\orcid@pic{\includegraphics{orcid}}}
-    {\def\orcid@pic{\raise2\p@\hb@xt@9bp{\hss{\small\textbullet\textbullet}\hss}}}
+\RequirePackage{ifpdf}
+\def\orcid@base{https://orcid.org/}
+\def\orcid@special@pdf#1{\special{pdf: #1}}
+\def\orcid@pic@pdf{%
+    \hbox to 9bp{%
+        \vrule width \z@ height 9bp%
+        \orcid@special@pdf{% 
+            q 1 0 0 -1 0 9 cm q 0.65098 0.807843 0.223529 rg 9 4.5 m 9 
+            6.984 6.984 9 4.5 9 c 2.016 9 0 6.984 0 4.5 c 0 2.016 2.016 
+            0 4.5 0 c 6.984 0 9 2.016 9 4.5 c h 9 4.5 m f 1 1 1 rg 2.492 
+            2.781 0.543 3.766 re f 3.828 2.781 m 5.289 2.781 l 6.684 
+            2.781 7.297 3.777 7.297 4.664 c 7.297 5.633 6.539 6.551 
+            5.297 6.551 c 3.828 6.551 l h 4.371 6.062 m 5.23 6.062 l 
+            6.457 6.062 6.738 5.129 6.738 4.664 c 6.738 3.91 6.258 3.27 
+            5.203 3.27 c 4.371 3.27 l h 4.371 6.062 m f 3.117 1.996 m 
+            3.117 2.191 2.961 2.352 2.762 2.352 c 2.566 2.352 2.41 2.191 
+            2.41 1.996 c 2.41 1.801 2.566 1.641 2.762 1.641 c 2.961 
+            1.641 3.117 1.805 3.117 1.996 c h 3.117 1.996 m f Q Q
+            }\hss
+        }%
+    }
+\def\orcid@pic@ps{%
+    \hbox to 9bp{%
+        \vrule width \z@ height 9bp%
+        \special{" gsave 0 0 9 9 rectclip
+            1 0 0 -1 0 9 6 array astore concat gsave 0.65098 0.807843 0.223529 setrgbcolor
+            9 4.5 moveto 9 6.984 6.984 9 4.5 9 curveto 2.016 9 0 6.984 0 4.5 curveto 
+            0 2.016 2.016 0 4.5 0 curveto 6.984 0 9 2.016 9 4.5 curveto closepath
+            9 4.5 moveto fill 1 setgray 2.492 2.781 0.543 3.766 exch dup neg 3 1 roll 5 3 roll 
+            moveto 0 rlineto 0 exch rlineto 0 rlineto closepath fill
+            3.828 2.781 moveto 5.289 2.781 lineto 6.684 2.781 7.297 3.777 7.297 4.664 curveto 
+            7.297 5.633 6.539 6.551 5.297 6.551 curveto 3.828 6.551 lineto closepath
+            4.371 6.062 moveto 5.23 6.062 lineto 6.457 6.062 6.738 5.129 6.738 4.664 curveto 
+            6.738 3.91 6.258 3.27 5.203 3.27 curveto 4.371 3.27 lineto closepath
+            4.371 6.062 moveto fill 3.117 1.996 moveto 3.117 2.191 2.961 2.352 2.762 2.352 curveto 
+            2.566 2.352 2.41 2.191 2.41 1.996 curveto 2.41 1.801 2.566 1.641 2.762 1.641 curveto 
+            2.961 1.641 3.117 1.805 3.117 1.996 curveto closepath
+            3.117 1.996 moveto fill grestore grestore
+            }\hss
+        }%
+    }
+\ifpdf
+    \let\orcid@pic\orcid@pic@pdf
+\else
+    \ifdefined\XeTeXversion
+        \def\orcid@special@pdf#1{\special{pdf:literal #1}}
+        \let\orcid@pic\orcid@pic@pdf
+    \else
+        \let\orcid@pic\orcid@pic@ps
+    \fi
+\fi
 \def\output@orcid{\lower2\p@\hbox{\href{\orcid@base \@orcid}{\orcid@pic}}}
 
 % Author

@@ -23,7 +23,6 @@ The following files are given in the repository (or directly in `.zip` archive):
 ### Files included at compilation
 
 -   Four figures: `fig1a.eps`, `fig1b.eps`, `fig1c.eps`, `fig1d.eps`
--   [ORCID](https://orcid.org/) logo: `orcid.eps`.
     ([SVG](https://figshare.com/articles/ORCID_iD_icon_graphics/5008697)&rarr;[PS](https://cairosvg.org/)&rarr;[EPS](https://www.ghostscript.com/doc/Devices.htm#EPS)).
 -   Bibliography: `sola_bibliography_example.bib`.
 
