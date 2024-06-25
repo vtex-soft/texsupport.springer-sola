@@ -1,7 +1,7 @@
 %% based on old style solarphysics.cls
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{spr-sola}[2024/05/23 v2.01,
+\ProvidesClass{spr-sola}[2024/06/25 v2.02,
     Springer base document class for "Solar Physics" journal]
 \newcommand\@ptsize{1}
 \newcommand\@pttensize{1}
@@ -2032,8 +2032,7 @@
   \@ifundefined{@listctr}{\newcounter{start}\setcounter{start}{0}\def\@listctr{start}}{}
   \let\bibfont\footnotesize
   \gdef\NAT@bibsetup#1{\kapbib@list}
-%\else
-%   \newlength{\bibhang}
+  \setcitestyle{aysep={}} 
 \fi
 
 \def\citefix{%
