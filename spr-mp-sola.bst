@@ -2594,7 +2594,7 @@ REVERSE {reverse.pass}
 
 FUNCTION {write.preambule}
 { "\begin{thebibliography}{" number.label int.to.str$ * "}" * write$ newline$
-  "% BibTex style file: spr-mp-sola.bst, v2.07, 2023-10-25" write$ newline$
+  "% BibTex style file: spr-mp-sola.bst, v2.07, 2025-05-02" write$ newline$
   "\ifx\bisbn     \undefined \def\bisbn  #1{ISBN #1}\fi" write$ newline$
   "\ifx\binits    \undefined \def\binits#1{#1}\fi" write$ newline$
   "\ifx\bauthor   \undefined \def\bauthor#1{#1}\fi" write$ newline$
@@ -2643,7 +2643,7 @@ FUNCTION {begin.bib}
   "\ifx\bcomment  \undefined \def\bcomment#1{#1}\fi" write$ newline$
   "\ifx\oauthor   \undefined \def\oauthor#1{#1}\fi" write$ newline$
   "\ifx\citeauthoryear \undefined\def \citeauthoryear#1{#1}\fi" write$ newline$
-  "\def\endbibitem {}" write$ newline$
+  "\ifx\endbibitem \undefined \def\endbibitem{}\fi" write$ newline$
   "\ifx\bconflocation  \undefined \def\bconflocation#1{#1} \fi" write$ newline$
 }
 EXECUTE {begin.bib}
