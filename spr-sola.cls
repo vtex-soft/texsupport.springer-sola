@@ -1,7 +1,7 @@
 %% based on old style solarphysics.cls
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{spr-sola}[2024/06/25 v2.02,
+\ProvidesClass{spr-sola}[2026/06/05 v2.03,
     Springer base document class for "Solar Physics" journal]
 \newcommand\@ptsize{1}
 \newcommand\@pttensize{1}
@@ -654,11 +654,7 @@
 \def\preabstractskip{0pt\relax}
 \newbox\@abstractbox
 \def\@abstract{}
-\def\@keywords{}
-\long\def\keywords#1{%
-    \gdef\@keywords{\message{\keywordsname}%
-        {\abstractsize\noindent{\keynamefont
-      \keywordsname:~}#1\par \vskip.7\baselineskip}}}
+\def\@keyword{}
 \def\@abbreviations{}
 \def\abbrev#1#2{#1 -- #2}
 \long\def\abbreviations#1{%
@@ -906,6 +902,9 @@
 
 \def\sola@tabular{%
     \let\savehline\hline
+    \def\@tabular{\leavevmode \hbox \bgroup $\let\@acol\@tabacol
+        \let\@classz\@tabclassz
+        \let\@classiv\@tabclassiv \let\\\@tabularcr\@tabarray}%
     \def\tabular{\begingroup
        \def\hline{\noalign{\vskip3pt}\savehline\noalign{\vskip3pt}}%
        \def\rcline####1{\@rcline[####1]}%
@@ -1975,6 +1974,9 @@
 \newtoks\document@abstract 
 \get@env@toks{abstract}{\document@abstract}
 
+\newtoks\document@keyword
+\get@env@toks{keyword}{\document@keyword}
+
 \gdef\@abstract{%
   \unskip
   \vskip\preabstractskip
@@ -1988,6 +1990,26 @@
   \vskip\afterabstractskip 
   }
 
+\gdef\@keyword{\message{\keywordsname}%
+  \noindent
+  \abstractsize\noindent
+  \bgroup
+    \long\def\start@tex@env##1[##2]##3\end@tex@env{\@kwdname\ignorespaces##3\par\vskip.7\baselineskip\relax}%
+    \the\document@keyword
+  \egroup
+  }
+
+\def\kwd@sep{}
+
+\def\kwd#1{%
+%  \unskip
+  \kwd@sep
+  #1%
+  \gdef\kwd@sep{\unskip; }%
+}
+
+\def\@kwdname{{\keynamefont\keywordsname:\space}}
+
 % Springer Copyright
 \def\sprcopyright{\gdef\@copyright{\copyright@size\copyright@text\vskip2\baselineskip}}
 \def\copyright@text{\textcopyright\ The author(s) \textbullet\textbullet\textbullet\textbullet}
@@ -1997,7 +2019,7 @@
 \def\@maketitle{%
    \@arttype \@title \@subtitle \@authorsandinstitutes 
    \@abstract 
-   \@keywords \@abbreviations \@classification
+   \@keyword \@abbreviations \@classification
    \@nomenclature \@translation \@dedication \@motto}
 
 \AtBeginDocument{\@ifundefined{urlstyle}{}{\urlstyle{rm}}}
