@@ -1,7 +1,7 @@
 %% based on old style solarphysics.cls
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{spr-sola}[2026/06/05 v2.03,
+\ProvidesClass{spr-sola}[2026/07/22 v2.04,
     Springer base document class for "Solar Physics" journal]
 \newcommand\@ptsize{1}
 \newcommand\@pttensize{1}
@@ -1766,8 +1766,8 @@
         \let\make@trivlist\@gobble
       \fi
     \fi
-    \def\fnm##1{\ignorespaces}%
-    \def\inits##1{##1\ignorespaces}%
+    \def\fnm##1{##1\ignorespaces}%
+    \def\inits##1{\ignorespaces}%
     \make@trivlist{%
       \csname castead@skip\endcsname
       \let\do@item\affil@footnote
